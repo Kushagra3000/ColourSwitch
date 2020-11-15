@@ -31,3 +31,5 @@ public class MenuPageController {
         System.exit(0);
     }
 }
+
+// TO COMBINE MENUPAGE CONTROLLER AND LOAD GAME PAGE CONTROLLER
