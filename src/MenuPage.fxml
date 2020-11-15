@@ -3,24 +3,24 @@
 <?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane prefHeight="600.0" prefWidth="1024.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane fx:id="menuPage" prefHeight="600.0" prefWidth="1024.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="MenuPageController">
    <children>
-      <ImageView fitHeight="600.0" fitWidth="1024.0" layoutX="-16.0" layoutY="63.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="600.0" fitWidth="1024.0" layoutX="-14.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@Image/Background.jpg" />
          </image>
       </ImageView>
-      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="412.0" layoutY="387.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="133.0" fitWidth="130.0" layoutX="447.0" layoutY="309.0" onMouseClicked="#startNewGame" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@Image/playbutton.png" />
+            <Image url="@Image/Play.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="84.0" layoutY="481.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="50.0" fitWidth="222.0" layoutX="76.0" layoutY="477.0" onMouseClicked="#loadGame" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@Image/loadGame.jpg" />
+            <Image url="@Image/loadingBtn.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="710.0" layoutY="497.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="80.0" fitWidth="139.0" layoutX="773.0" layoutY="460.0" onMouseClicked="#ExitGame" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@Image/exitbutton.png" />
          </image>
