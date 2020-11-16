@@ -3,14 +3,14 @@
 <?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane fx:id="LoadGameRoot" prefHeight="600.0" prefWidth="1024.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="LoadGamePageController">
+<AnchorPane fx:id="LoadGameRoot" prefHeight="600.0" prefWidth="1024.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Game">
    <children>
       <ImageView fitHeight="600.0" fitWidth="1024.0" layoutX="1.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@Image/LoadPBG.jpeg" />
          </image>
       </ImageView>
-      <ImageView fitHeight="68.0" fitWidth="296.0" layoutX="28.0" layoutY="23.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="68.0" fitWidth="296.0" layoutX="25.0" layoutY="23.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@Image/loadName.png" />
          </image>

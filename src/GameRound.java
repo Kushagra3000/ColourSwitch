@@ -1,9 +1,40 @@
+import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 
+import java.io.IOException;
+import java.util.concurrent.TimeUnit;
+
 public class GameRound {
+    @FXML
     private AnchorPane gameplay;
 
-    void setGameplay(){
+    //private Pause pause;
 
+    @FXML
+    void pauseMenu() throws IOException {
+        AnchorPane pausePane = FXMLLoader.load(getClass().getResource("PauseMenu.fxml"));
+        gameplay.getChildren().add(pausePane);
+    }
+
+    @FXML
+    void ResumeGame() throws IOException {
+        AnchorPane pausePane = FXMLLoader.load(getClass().getResource("GamePlayPage.fxml"));
+        gameplay.getChildren().setAll(pausePane);
+        //gameplay.getChildren();
+    }
+
+    @FXML
+    void backToMenu() throws IOException {
+        AnchorPane menu = FXMLLoader.load(getClass().getResource("MenuPage.fxml"));
+        gameplay.getChildren().setAll(menu);
+    }
+
+    @FXML
+    void SaveMenu() throws IOException{
+        AnchorPane menu = FXMLLoader.load(getClass().getResource("MenuPage.fxml"));
+        gameplay.getChildren().setAll(menu);
     }
 }
