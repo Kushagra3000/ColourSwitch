@@ -10,6 +10,11 @@ import java.util.ResourceBundle;
 
 public class Game implements Initializable {
 
+//    Game(){
+//        System.out.println("New try");
+//    }
+
+    
     @FXML
     private AnchorPane menuPage;
 

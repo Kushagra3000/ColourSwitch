@@ -37,4 +37,10 @@ public class GameRound {
         AnchorPane menu = FXMLLoader.load(getClass().getResource("MenuPage.fxml"));
         gameplay.getChildren().setAll(menu);
     }
+
+    @FXML
+    void gameOver() throws IOException {
+        AnchorPane over  = FXMLLoader.load(getClass().getResource("GameOverPage.fxml"));
+        gameplay.getChildren().setAll(over);
+    }
 }

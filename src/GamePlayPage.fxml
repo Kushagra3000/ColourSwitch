@@ -5,12 +5,12 @@
 
 <AnchorPane fx:id="gameplay" prefHeight="600.0" prefWidth="1024.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GameRound">
    <children>
-      <ImageView fitHeight="587.0" fitWidth="911.0" layoutX="-6.0" layoutY="-24.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="650.0" fitWidth="1124.0" layoutX="-6.0" layoutY="-24.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@Image/playPage.jpg" />
          </image>
       </ImageView>
-      <ImageView fitHeight="106.0" fitWidth="71.0" layoutX="395.0" layoutY="458.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="106.0" fitWidth="71.0" layoutX="452.0" layoutY="500.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@Image/handStart.jpg" />
          </image>
@@ -23,6 +23,16 @@
       <ImageView fitHeight="79.0" fitWidth="176.0" layoutX="22.0" layoutY="43.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@Image/pauseImg.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="48.0" fitWidth="183.0" layoutX="769.0" layoutY="43.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@Image/score.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="20.0" layoutY="454.0" onMouseClicked="#gameOver" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@Image/gameOver.png" />
          </image>
       </ImageView>
    </children>
