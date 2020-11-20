@@ -14,6 +14,16 @@ public class GameRound {
     //private Pause pause;
 
     @FXML
+    private void initialize(){
+        try {
+            AnchorPane pane2 = FXMLLoader.load(getClass().getResource("squareObs.fxml"));
+            gameplay.getChildren().addAll(pane2);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    @FXML
     void pauseMenu() throws IOException {
         AnchorPane pausePane = FXMLLoader.load(getClass().getResource("PauseMenu.fxml"));
         gameplay.getChildren().add(pausePane);

@@ -44,7 +44,7 @@ public class Game implements Initializable {
         LoadGameRoot.getChildren().setAll(pane);
     }
 
-    @Override
+    @FXML
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
     }
