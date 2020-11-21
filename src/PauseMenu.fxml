@@ -3,9 +3,9 @@
 <?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane fx:id="gameplay" opacity="1" prefHeight="368.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GameRound">
+<AnchorPane fx:id="gameplay" prefHeight="600.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GameRound">
    <children>
-      <ImageView fitHeight="411.0" fitWidth="600.0" layoutX="148.0" layoutY="118.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="395.0" fitWidth="619.0" layoutX="148.0" layoutY="118.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@Image/ThemeDark.jpg" />
          </image>
@@ -15,17 +15,17 @@
             <Image url="@Image/Paused.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="98.0" fitWidth="91.0" layoutX="428.0" layoutY="279.0" pickOnBounds="true" onMouseClicked="#ResumeGame" preserveRatio="true">
+      <ImageView fitHeight="98.0" fitWidth="91.0" layoutX="428.0" layoutY="279.0" onMouseClicked="#ResumeGame" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@Image/Play.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="69.0" fitWidth="71.0" layoutX="186.0" layoutY="144.0" pickOnBounds="true" onMouseClicked="#backToMenu" preserveRatio="true">
+      <ImageView fitHeight="69.0" fitWidth="71.0" layoutX="186.0" layoutY="144.0" onMouseClicked="#backToMenu" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@Image/HomeButton.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="91.0" fitWidth="293.0" layoutX="335.0" layoutY="406.0" pickOnBounds="true" onMouseClicked="#SaveMenu" preserveRatio="true">
+      <ImageView fitHeight="91.0" fitWidth="293.0" layoutX="335.0" layoutY="406.0" onMouseClicked="#SaveMenu" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@Image/saveAndExit.png" />
          </image>

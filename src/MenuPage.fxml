@@ -10,12 +10,7 @@
             <Image url="@Image/Background.jpg" />
          </image>
       </ImageView>
-      <ImageView fitHeight="133.0" fitWidth="130.0" layoutX="470.0" layoutY="318.0" onMouseClicked="#startNewGame" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@Image/Play.png" />
-         </image>
-      </ImageView>
-      <ImageView fitHeight="50.0" fitWidth="222.0" layoutX="76.0" layoutY="477.0" onMouseClicked="#loadGame" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="loadBtn" fitHeight="50.0" fitWidth="222.0" layoutX="76.0" layoutY="477.0" onMouseClicked="#loadGame" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@Image/loadingBtn.png" />
          </image>
@@ -23,6 +18,26 @@
       <ImageView fitHeight="80.0" fitWidth="139.0" layoutX="773.0" layoutY="460.0" onMouseClicked="#ExitGame" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@Image/exitbutton.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="c1" fitHeight="328.0" fitWidth="326.0" layoutX="370.0" layoutY="219.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@Image/c1.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="c2" fitHeight="263.0" fitWidth="264.0" layoutX="402.0" layoutY="249.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@Image/c2.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="c3" fitHeight="209.0" fitWidth="208.0" layoutX="429.0" layoutY="277.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@Image/c3.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="158.0" fitWidth="159.0" layoutX="454.0" layoutY="302.0" onMouseClicked="#startNewGame" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@Image/Play.png" />
          </image>
       </ImageView>
    </children>

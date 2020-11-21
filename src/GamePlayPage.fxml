@@ -2,38 +2,42 @@
 
 <?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
 
 <AnchorPane fx:id="gameplay" prefHeight="600.0" prefWidth="1024.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GameRound">
    <children>
-      <ImageView fitHeight="650.0" fitWidth="1124.0" layoutX="-6.0" layoutY="-24.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="678.0" fitWidth="1024.0" layoutY="-46.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@Image/playPage.jpg" />
          </image>
       </ImageView>
-      <ImageView fitHeight="106.0" fitWidth="71.0" layoutX="452.0" layoutY="500.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@Image/handStart.jpg" />
-         </image>
-      </ImageView>
-      <ImageView fitHeight="108.0" fitWidth="143.0" layoutX="51.0" layoutY="91.0" onMouseClicked="#pauseMenu" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="pauseimg" fitHeight="108.0" fitWidth="143.0" layoutX="809.0" layoutY="101.0" onMouseClicked="#pauseMenu" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@Image/pausebtn.jpg" />
          </image>
       </ImageView>
-      <ImageView fitHeight="79.0" fitWidth="176.0" layoutX="22.0" layoutY="43.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="79.0" fitWidth="176.0" layoutX="790.0" layoutY="34.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@Image/pauseImg.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="48.0" fitWidth="183.0" layoutX="769.0" layoutY="43.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="48.0" fitWidth="183.0" layoutX="62.0" layoutY="45.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@Image/score.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="20.0" layoutY="454.0" onMouseClicked="#gameOver" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="785.0" layoutY="497.0" onMouseClicked="#gameOver" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@Image/gameOver.png" />
          </image>
       </ImageView>
+      <ImageView fitHeight="73.0" fitWidth="72.0" layoutX="471.0" layoutY="497.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@Image/handStart.jpg" />
+         </image>
+      </ImageView>
+      <Line endX="253.0" layoutX="489.0" layoutY="500.0" startX="-211.0" stroke="#9ba23c" strokeLineJoin="BEVEL" strokeWidth="4.0" />
+      <TextFlow layoutX="53.0" layoutY="109.0" prefHeight="128.0" prefWidth="184.0" />
    </children>
 </AnchorPane>

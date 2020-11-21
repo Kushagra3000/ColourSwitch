@@ -5,9 +5,9 @@
 
 <AnchorPane fx:id="squareObstacle" prefHeight="483.0" prefWidth="621.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="SquareObs">
    <children>
-      <Line fx:id="line1" endX="50.0" layoutX="478.0" layoutY="263.0" startX="-50.0" stroke="#fae100" strokeWidth="10.0" />
-      <Line fx:id="line2" endY="100.0" layoutX="424.0" layoutY="267.0" stroke="#900dff" strokeWidth="10.0" />
-      <Line fx:id="line3" layoutX="528.0" layoutY="371.0" startX="-100.0" stroke="#ff0181" strokeWidth="10.0" />
-      <Line fx:id="line4" endX="-100.0" endY="-100.0" layoutX="632.0" layoutY="367.0" startX="-100.0" stroke="#32dbf0" strokeWidth="10.0" />
+      <Line fx:id="line1" endX="65.0" layoutX="494.0" layoutY="124.0" startX="-65.0" stroke="#fae100" strokeLineCap="ROUND" strokeWidth="10.0" />
+      <Line fx:id="line2" endY="115.0" layoutX="429.0" layoutY="139.0" startY="-15.0" stroke="#900dff" strokeLineCap="ROUND" strokeWidth="10.0" />
+      <Line fx:id="line3" endX="15.0" layoutX="544.0" layoutY="254.0" startX="-115.0" stroke="#ff0181" strokeLineCap="ROUND" strokeWidth="10.0" />
+      <Line fx:id="line4" endX="-100.0" endY="-115.0" layoutX="659.0" layoutY="239.0" startX="-100.0" startY="15.0" stroke="#32dbf0" strokeLineCap="ROUND" strokeWidth="10.0" />
    </children>
 </AnchorPane>

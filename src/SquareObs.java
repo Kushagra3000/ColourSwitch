@@ -28,18 +28,18 @@ public class SquareObs extends Obstacles {
     @FXML
     private void initialize(){
         r1.setPivotX(0);
-        r1.setPivotY(50);
+        r1.setPivotY(65);
         line1.getTransforms().add(r1);
 
-        r2.setPivotX(50);
+        r2.setPivotX(65);
         r2.setPivotY(50);
         line2.getTransforms().add(r2);
 
         r3.setPivotX(-50);
-        r3.setPivotY(-50);
+        r3.setPivotY(-65);
         line3.getTransforms().add(r3);
 
-        r4.setPivotX(-150);
+        r4.setPivotX(-165);
         r4.setPivotY(-50);
         line4.getTransforms().add(r4);
 
