@@ -16,6 +16,7 @@ import javafx.scene.shape.Circle;
 import javafx.util.Duration;
 
 import java.io.IOException;
+import java.util.Random;
 import java.util.concurrent.TimeUnit;
 
 public class GameRound {
@@ -39,10 +40,20 @@ public class GameRound {
         try {
             AnchorPane pane3 = FXMLLoader.load(getClass().getResource("playBall.fxml"));
             AnchorPane pane4 = FXMLLoader.load(getClass().getResource("stars.fxml"));
-            //AnchorPane pane5 = FXMLLoader.load(getClass().getResource("TriangleObs.fxml"));
-            //AnchorPane pane5 = FXMLLoader.load(getClass().getResource("circleObs.fxml"));
-            //AnchorPane pane5 = FXMLLoader.load(getClass().getResource("squareObs.fxml"));
-            AnchorPane pane5 = FXMLLoader.load(getClass().getResource("lineObs.fxml"));
+            Random random = new Random();
+            int obs = random.nextInt(4)+1;
+            AnchorPane pane5;
+            if(obs == 1)
+                pane5 = FXMLLoader.load(getClass().getResource("TriangleObs.fxml"));
+
+            else if(obs == 2)
+                pane5 = FXMLLoader.load(getClass().getResource("circleObs.fxml"));
+
+            else if(obs == 3)
+                pane5 = FXMLLoader.load(getClass().getResource("squareObs.fxml"));
+
+            else
+                pane5 = FXMLLoader.load(getClass().getResource("lineObs.fxml"));
 
             if(now) {
                 gameplay.getChildren().addAll(pane3);
