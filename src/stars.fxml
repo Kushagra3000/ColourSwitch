@@ -5,7 +5,7 @@
 
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Stars">
    <children>
-      <Polygon fill="#fff91f" layoutX="489.0" layoutY="208.0" points="-9.0, -25.0, 21.0, -25.0, 6.0, -53.0" stroke="#fff91f" strokeType="INSIDE" />
-      <Polygon fill="#fff91f" layoutX="442.0" layoutY="222.0" points="68.0, -56.0, 55.0, -30.0, 38.0, -56.00000762939453" stroke="#fff91f" strokeType="INSIDE" />
+      <Polygon fill="#fff91f" layoutX="489.0" layoutY="222.0" points="-9.0, -25.0, 21.0, -25.0, 6.0, -53.0" stroke="#fff91f" strokeType="INSIDE" />
+      <Polygon fill="#fff91f" layoutX="442.0" layoutY="239.0" points="68.0, -56.0, 55.0, -30.0, 38.0, -56.00000762939453" stroke="#fff91f" strokeType="INSIDE" />
    </children>
 </AnchorPane>

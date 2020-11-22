@@ -81,7 +81,6 @@ public class Game implements Initializable {
         rt.setRate(3);
         rt.setCycleCount(20);
         rt.play();
-        System.out.println("here");
     }
 
 }

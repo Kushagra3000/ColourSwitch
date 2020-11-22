@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.*?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="LineObs">
+   <children>
+      <Line fx:id="line1" endX="-58.666656494140625" endY="35.0" layoutX="632.0" layoutY="189.0" startX="-58.666656494140625" startY="-160.0" stroke="#900dff" strokeWidth="8.0" />
+      <Line fx:id="line2" endX="-100.0" endY="-131.3333282470703" layoutX="673.0" layoutY="163.0" startX="-100.0" startY="57.66667175292969" stroke="#fae100" strokeWidth="8.0" />
+      <Line fx:id="line3" endX="-47.666656494140625" endY="-90.66667175292969" layoutX="322.0" layoutY="126.0" startX="-47.666656494140625" startY="102.33332824707031" stroke="#ff0181" strokeWidth="8.0" />
+      <Line fx:id="line4" endX="68.33332824707031" endY="-95.33332824707031" layoutX="206.0" layoutY="131.0" startX="68.33332824707031" startY="95.66667175292969" stroke="#32dbf0" strokeWidth="8.0" />
+   </children>
+</AnchorPane>

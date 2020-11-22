@@ -37,13 +37,17 @@ public class GameRound {
     @FXML
     private void initialize(){
         try {
-            AnchorPane pane2 = FXMLLoader.load(getClass().getResource("squareObs.fxml"));
             AnchorPane pane3 = FXMLLoader.load(getClass().getResource("playBall.fxml"));
             AnchorPane pane4 = FXMLLoader.load(getClass().getResource("stars.fxml"));
+            //AnchorPane pane5 = FXMLLoader.load(getClass().getResource("TriangleObs.fxml"));
+            AnchorPane pane5 = FXMLLoader.load(getClass().getResource("circleObs.fxml"));
+            //AnchorPane pane5 = FXMLLoader.load(getClass().getResource("squareObs.fxml"));
+            //AnchorPane pane5 = FXMLLoader.load(getClass().getResource("lineObs.fxml"));
+
             if(now) {
-                gameplay.getChildren().addAll(pane2);
                 gameplay.getChildren().addAll(pane3);
                 gameplay.getChildren().addAll(pane4);
+                gameplay.getChildren().addAll(pane5);
             }
         } catch (IOException e) {
             e.printStackTrace();
