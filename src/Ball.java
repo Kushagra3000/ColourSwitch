@@ -28,7 +28,7 @@ public class Ball extends GameElements {
                     new KeyValue(ball.layoutYProperty(), ball.getLayoutY() - 50)));
             timeline.setCycleCount(1);
             Timeline t2 = new Timeline(new KeyFrame(Duration.millis(1100),
-                    new KeyValue(ball.layoutYProperty(), 700)));
+                    new KeyValue(ball.layoutYProperty(), 650)));
             t2.setCycleCount(1);
             timeline.play();
             timeline.setOnFinished(actionEvent -> t2.play());

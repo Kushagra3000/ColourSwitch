@@ -40,14 +40,18 @@ public class GameRound {
             AnchorPane pane3 = FXMLLoader.load(getClass().getResource("playBall.fxml"));
             AnchorPane pane4 = FXMLLoader.load(getClass().getResource("stars.fxml"));
             //AnchorPane pane5 = FXMLLoader.load(getClass().getResource("TriangleObs.fxml"));
-            AnchorPane pane5 = FXMLLoader.load(getClass().getResource("circleObs.fxml"));
+            //AnchorPane pane5 = FXMLLoader.load(getClass().getResource("circleObs.fxml"));
             //AnchorPane pane5 = FXMLLoader.load(getClass().getResource("squareObs.fxml"));
-            //AnchorPane pane5 = FXMLLoader.load(getClass().getResource("lineObs.fxml"));
+            AnchorPane pane5 = FXMLLoader.load(getClass().getResource("lineObs.fxml"));
 
             if(now) {
                 gameplay.getChildren().addAll(pane3);
                 gameplay.getChildren().addAll(pane4);
                 gameplay.getChildren().addAll(pane5);
+            }
+
+            if(!now){
+                gameplay.getChildren().removeAll(pane3);
             }
         } catch (IOException e) {
             e.printStackTrace();
@@ -59,7 +63,7 @@ public class GameRound {
     void pauseMenu() throws IOException {
         now = false;
         Pane pausePane = FXMLLoader.load(getClass().getResource("PauseMenu.fxml"));
-        gameplay.getChildren().addAll(pausePane);
+        gameplay.getChildren().setAll(pausePane);
     }
 
     @FXML
@@ -84,7 +88,7 @@ public class GameRound {
     @FXML
     void gameOver() throws IOException {
         AnchorPane over  = FXMLLoader.load(getClass().getResource("GameOverPage.fxml"));
-        gameplay.getChildren().addAll(over);
+        gameplay.getChildren().setAll(over);
     }
 
 }

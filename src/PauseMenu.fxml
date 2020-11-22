@@ -3,9 +3,9 @@
 <?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane fx:id="gameplay" prefHeight="600.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GameRound">
+<AnchorPane fx:id="gameplay" prefHeight="600.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GameRound">
    <children>
-      <ImageView fitHeight="395.0" fitWidth="619.0" layoutX="148.0" layoutY="118.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="741.0" fitWidth="1321.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@Image/ThemeDark.jpg" />
          </image>
@@ -28,6 +28,31 @@
       <ImageView fitHeight="91.0" fitWidth="293.0" layoutX="335.0" layoutY="406.0" onMouseClicked="#SaveMenu" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@Image/saveAndExit.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="176.0" fitWidth="356.0" layoutX="672.0" layoutY="37.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@Image/name.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="116.0" fitWidth="293.0" layoutX="-6.0" layoutY="488.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@Image/starsDec.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="124.0" fitWidth="273.0" layoutX="265.0" layoutY="490.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@Image/starsDec.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="116.0" fitWidth="273.0" layoutX="519.0" layoutY="490.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@Image/starsDec.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="141.0" fitWidth="273.0" layoutX="772.0" layoutY="490.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@Image/starsDec.jpg" />
          </image>
       </ImageView>
    </children>
