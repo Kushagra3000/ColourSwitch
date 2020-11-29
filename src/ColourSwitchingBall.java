@@ -1,2 +1,2 @@
-public class ColourSwitchingBall extends GameElements {
+public class ColourSwitchingBall {
 }

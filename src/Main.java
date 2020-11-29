@@ -13,6 +13,7 @@ public class Main extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception{
         //addMusic();
+        System.out.print("Game started" );
         Parent root = FXMLLoader.load(getClass().getResource("MenuPage.fxml"));
         primaryStage.setTitle("Colour Switch");
         primaryStage.setScene(new Scene(root, 1024, 600));

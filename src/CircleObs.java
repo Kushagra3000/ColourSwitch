@@ -3,19 +3,39 @@ import javafx.fxml.FXML;
 import javafx.scene.shape.Arc;
 import javafx.util.Duration;
 
-public class CircleObs extends Obstacles {
+public class CircleObs extends Obstacles  {
 
     @FXML
-    private Arc arc1;
+    private static Arc arc1;
 
     @FXML
-    private Arc arc2;
+    private static Arc arc2;
 
     @FXML
-    private Arc arc3;
+    private static Arc arc3;
 
     @FXML
-    private Arc arc4;
+    private static Arc arc4;
+
+
+    public  static  Arc  getArc(int r)
+    {
+
+        if(r==1)
+            return arc1;
+
+
+        if(r==2)
+            return arc2;
+
+
+        if(r==3)
+            return arc3;
+
+
+        else
+        return arc4;
+    }
 
 
     @FXML

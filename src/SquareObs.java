@@ -6,7 +6,7 @@ import javafx.scene.shape.Line;
 import javafx.scene.transform.Rotate;
 import javafx.util.Duration;
 
-public class SquareObs extends Obstacles {
+public class SquareObs {
 
     @FXML
     private Line line1;

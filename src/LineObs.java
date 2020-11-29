@@ -3,10 +3,9 @@ import javafx.animation.KeyValue;
 import javafx.animation.Timeline;
 import javafx.fxml.FXML;
 import javafx.scene.shape.Line;
-import javafx.scene.transform.Rotate;
 import javafx.util.Duration;
 
-public class LineObs extends Obstacles {
+public class LineObs  {
 
     @FXML
     private Line line1;

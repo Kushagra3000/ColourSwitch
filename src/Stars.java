@@ -1,2 +1,4 @@
-public class Stars extends GameElements {
+public class Stars {
+
+
 }
