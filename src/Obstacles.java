@@ -1,4 +1,4 @@
-public class Obstacles   {
+public class Obstacles extends GameElements  {
     double posx;
     double posy;
 

@@ -1,45 +1,38 @@
 import javafx.animation.*;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.geometry.Bounds;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.shape.Arc;
+import javafx.scene.shape.Circle;
 import javafx.util.Duration;
 
-public class CircleObs extends Obstacles  {
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.io.IOException;
+
+public class CircleObs extends GameElements implements ActionListener {
 
     @FXML
-    private static Arc arc1;
+    public  Arc arc1;
 
     @FXML
-    private static Arc arc2;
+    public Arc arc2;
 
     @FXML
-    private static Arc arc3;
+    public Arc arc3;
 
     @FXML
-    private static Arc arc4;
-
-
-    public  static  Arc  getArc(int r)
-    {
-
-        if(r==1)
-            return arc1;
-
-
-        if(r==2)
-            return arc2;
-
-
-        if(r==3)
-            return arc3;
-
-
-        else
-        return arc4;
-    }
-
+    public Arc arc4;
 
     @FXML
-    private void initialize() {
+    public Circle innerpart;
+
+    public static Bounds a1,a2,a3,a4;
+
+    @FXML
+    public void initialize() throws IOException {
+        AnchorPane pane3 = FXMLLoader.load(getClass().getResource("playBall.fxml"));
         Timeline animation = new Timeline(
                 new KeyFrame(Duration.ZERO, new KeyValue(arc1.startAngleProperty(), arc1.getStartAngle(), Interpolator.LINEAR)),
                 new KeyFrame(Duration.seconds(6), new KeyValue(arc1.startAngleProperty(), arc1.getStartAngle() - 360, Interpolator.LINEAR)),
@@ -50,8 +43,20 @@ public class CircleObs extends Obstacles  {
                 new KeyFrame(Duration.ZERO, new KeyValue(arc4.startAngleProperty(), arc4.getStartAngle(), Interpolator.LINEAR)),
                 new KeyFrame(Duration.seconds(6), new KeyValue(arc4.startAngleProperty(), arc4.getStartAngle() - 360, Interpolator.LINEAR))
         );
+
         animation.setCycleCount(Animation.INDEFINITE);
         animation.play();
+
+
+    }
+
+
+
+    public void actionPerformed(ActionEvent e){
+        a1 = arc1.getBoundsInLocal();
+        a2 = arc2.getBoundsInLocal();
+        a3 = arc3.getBoundsInLocal();
+        a4 = arc4.getBoundsInLocal();
     }
 
 }

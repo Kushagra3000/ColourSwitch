@@ -6,7 +6,7 @@
 <?import javafx.scene.shape.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane fx:id="gameplay" prefHeight="600.0" prefWidth="1024.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GameRound">
+<AnchorPane fx:id="gameplay" prefHeight="600.0" prefWidth="1024.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GameRound">
    <children>
       <ImageView accessibleRole="TEXT" fitHeight="678.0" fitWidth="1024.0" layoutY="-46.0" pickOnBounds="true" preserveRatio="true">
          <image>
@@ -36,6 +36,11 @@
       <ImageView fitHeight="73.0" fitWidth="72.0" layoutX="471.0" layoutY="497.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@Image/handStart.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="Gmo" fitHeight="293.0" fitWidth="306.0" layoutX="356.0" layoutY="69.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@Image/test1.gif" />
          </image>
       </ImageView>
       <Line endX="253.0" layoutX="489.0" layoutY="500.0" startX="-211.0" stroke="#9ba23c" strokeLineJoin="BEVEL" strokeWidth="4.0" />

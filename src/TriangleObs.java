@@ -6,7 +6,7 @@ import javafx.scene.shape.Line;
 import javafx.scene.transform.Rotate;
 import javafx.util.Duration;
 
-public class TriangleObs  {
+public class TriangleObs extends Obstacles {
 
     @FXML
     private Line line1;

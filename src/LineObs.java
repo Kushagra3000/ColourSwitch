@@ -5,7 +5,7 @@ import javafx.fxml.FXML;
 import javafx.scene.shape.Line;
 import javafx.util.Duration;
 
-public class LineObs  {
+public class LineObs extends Obstacles  {
 
     @FXML
     private Line line1;

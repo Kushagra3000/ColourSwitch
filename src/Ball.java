@@ -8,21 +8,18 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.shape.Circle;
 import javafx.util.Duration;
 
+import javax.swing.*;
+import java.awt.event.ActionListener;
 import java.io.IOException;
 
-public  class Ball extends Circle  {
+public class Ball extends Obstacles implements ActionListener {
      static int points ;
-    static double  posx,posy=500;
+    static double posy=500;
+    static double posx = 500;
     @FXML
     public  Circle ball;
 
-   static Bounds bound;
-
-    public static Bounds getBound()
-    {
-      return bound   ;
-
-    }
+   public static Bounds bound;
 
     @FXML
     private AnchorPane root;
@@ -38,7 +35,7 @@ public  class Ball extends Circle  {
             Timeline timeline = new Timeline(new KeyFrame(Duration.millis(200),
                     new KeyValue(ball.layoutYProperty(), ball.getLayoutY() - 50)));
             posy=ball.getLayoutY()-50;
-            System.out.println(posy);
+            posx= ball.getLayoutX();
             bound= ball.getBoundsInParent();
 
             timeline.setCycleCount(1);
@@ -51,4 +48,8 @@ public  class Ball extends Circle  {
     }
 
 
+    @Override
+    public void actionPerformed(java.awt.event.ActionEvent actionEvent) {
+        bound = ball.getBoundsInLocal();
+    }
 }
