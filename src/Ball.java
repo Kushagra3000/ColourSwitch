@@ -13,7 +13,7 @@ import java.awt.event.ActionListener;
 import java.io.IOException;
 
 public class Ball implements ActionListener {
-     static int points ;
+      double points ;
     static double posy=500;
     static double posx = 500;
     @FXML
@@ -46,8 +46,19 @@ public class Ball implements ActionListener {
             timeline.play();
             timeline.setOnFinished(actionEvent -> t2.play());
     }
+   /* double  collectPoints(Stars star)
+    {
+        if(ball.getBoundsInParent().intersects(star.star2.getBoundsInParent()))
+        {
+            points=+1;
+
+        }
+        return points;
 
 
+
+    }
+*/
     @Override
     public void actionPerformed(java.awt.event.ActionEvent actionEvent) {
         bound = ball.getBoundsInLocal();

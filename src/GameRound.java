@@ -33,8 +33,10 @@ public class GameRound {
     private double t=0;
     AnchorPane pane4 ;
     AnchorPane pane5;
+    Stars  star;
     Obstacles obstacle;
     Ball PlayingBall;
+    int points;
 
     @FXML
     private void initialize(){
@@ -43,10 +45,12 @@ public class GameRound {
             FXMLLoader loadBall = new FXMLLoader(getClass().getResource("playBall.fxml"));
             AnchorPane pane3 = loadBall.load();
             PlayingBall = loadBall.getController();
-            pane4 = FXMLLoader.load(getClass().getResource("stars.fxml"));
+            FXMLLoader load2 = new FXMLLoader(getClass().getResource("stars.fxml"));
+            pane4=load2.load();
+            star=load2.getController();
             Random random = new Random();
-            //int obs = random.nextInt(4)+1;
-            int obs = 1;
+            int obs = random.nextInt(4)+1;
+            //int obs = 1;
             if(obs == 1) {
                 FXMLLoader load = new FXMLLoader(getClass().getResource("LineObs.fxml"));
                 pane5 = load.load();
@@ -143,10 +147,12 @@ public class GameRound {
 
     private void update() throws IOException {
         t =+0.016;
-        if(Ball.posy<=222)
+        //if(Ball.posy<=222)
+        if(PlayingBall.ball.getBoundsInParent().intersects(star.star2.getBoundsInParent()))
+        // PlayingBall.collectPoints(star);
         {
-            Ball.points=+1;
-            score.setText(Ball.points +"");
+            points=+1;
+            score.setText(points +"");
             gameplay.getChildren().removeAll(pane4);
             pane4.setVisible(false);
         }
@@ -159,7 +165,9 @@ public class GameRound {
 
         if(obstacle.cannotPass(PlayingBall)){
             System.out.println("Game Should be Over");
-            Gmo.setVisible(true);
+             Gmo.setVisible(true);
+            gameOver();
+
         }
 
         if (t > 2) {
