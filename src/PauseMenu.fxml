@@ -3,7 +3,7 @@
 <?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane fx:id="gameplay" prefHeight="600.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GameRound">
+<AnchorPane fx:id="PausePage" prefHeight="600.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Pause">
    <children>
       <ImageView fitHeight="741.0" fitWidth="1321.0" pickOnBounds="true" preserveRatio="true">
          <image>

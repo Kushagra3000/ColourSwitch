@@ -43,7 +43,6 @@ public class Game implements Initializable {
 
     @FXML
     void startNewGame(MouseEvent event) throws IOException {
-        GameRound.now = true;
         AnchorPane pane= FXMLLoader.load(getClass().getResource("GamePlayPage.fxml"));
         menuPage.getChildren().setAll(pane);
     }

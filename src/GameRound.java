@@ -28,8 +28,6 @@ public class GameRound {
     @FXML
     private ImageView Gmo;
 
-    static boolean now = true ;
-
     private double t=0;
     AnchorPane pane4 ;
     AnchorPane pane5;
@@ -46,9 +44,9 @@ public class GameRound {
             pane4 = FXMLLoader.load(getClass().getResource("stars.fxml"));
             Random random = new Random();
             //int obs = random.nextInt(4)+1;
-            int obs = 1;
+            int obs = 2;
             if(obs == 1) {
-                FXMLLoader load = new FXMLLoader(getClass().getResource("LineObs.fxml"));
+                FXMLLoader load = new FXMLLoader(getClass().getResource("TriangleObs.fxml"));
                 pane5 = load.load();
                 obstacle = load.getController();
             }
@@ -62,32 +60,20 @@ public class GameRound {
             }
 
             else if(obs == 3) {
-                FXMLLoader load = new FXMLLoader(getClass().getResource("SquareObs.fxml"));
-                pane5 = load.load();
-                obstacle = load.getController();}
+                pane5 = FXMLLoader.load(getClass().getResource("squareObs.fxml"));
+            }
 
             else {
-                FXMLLoader load = new FXMLLoader(getClass().getResource("TriangleObs.fxml"));
-                pane5 = load.load();
-                obstacle = load.getController();
-
-
-
+                pane5 = FXMLLoader.load(getClass().getResource("lineObs.fxml"));
             }
 
 
+            pane4.setVisible(true);
+            Gmo.setVisible(false);
+            gameplay.getChildren().addAll(pane3);
+            gameplay.getChildren().addAll(pane4);
+            gameplay.getChildren().addAll(pane5);
 
-            if(now) {
-                pane4.setVisible(true);
-                Gmo.setVisible(false);
-                gameplay.getChildren().addAll(pane3);
-                gameplay.getChildren().addAll(pane4);
-                gameplay.getChildren().addAll(pane5);
-            }
-
-            if(!now){
-                //gameplay.getChildren().removeAll(pane3);
-            }
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -110,29 +96,8 @@ public class GameRound {
 
     @FXML
     void pauseMenu() throws IOException {
-        now = false;
         Pane pausePane = FXMLLoader.load(getClass().getResource("PauseMenu.fxml"));
         gameplay.getChildren().setAll(pausePane);
-    }
-
-    @FXML
-    void ResumeGame() throws IOException {
-        now = true;
-        AnchorPane pausePane = FXMLLoader.load(getClass().getResource("GamePlayPage.fxml"));
-        gameplay.getChildren().setAll(pausePane);
-    }
-
-
-    @FXML
-    void backToMenu() throws IOException {
-        AnchorPane menu = FXMLLoader.load(getClass().getResource("MenuPage.fxml"));
-        gameplay.getChildren().setAll(menu);
-    }
-
-    @FXML
-    void SaveMenu() throws IOException{
-        AnchorPane menu = FXMLLoader.load(getClass().getResource("MenuPage.fxml"));
-        gameplay.getChildren().setAll(menu);
     }
 
     @FXML
