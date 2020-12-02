@@ -26,7 +26,7 @@ public class SquareObs extends Obstacles {
     Rotate r4 = new Rotate();
 
     @FXML
-    private void initialize(){
+    private void initialize() {
         r1.setPivotX(0);
         r1.setPivotY(65);
         line1.getTransforms().add(r1);
@@ -49,7 +49,7 @@ public class SquareObs extends Obstacles {
         addRota(r4);
     }
 
-    private void addRota(Rotate rotation){
+    private void addRota(Rotate rotation) {
         Timeline timeline = new Timeline(
                 new KeyFrame(Duration.ZERO, new KeyValue(rotation.angleProperty(), 0)),
                 new KeyFrame(Duration.seconds(1000), new KeyValue(rotation.angleProperty(), 36000)));
@@ -58,6 +58,88 @@ public class SquareObs extends Obstacles {
 
     @Override
     boolean cannotPass(Ball playingBall) {
-        return false;
+
+        // System.out.println("in triangle");
+        //System.out.println(line3.getStroke());
+        //System.out.println(playingBall.ball.getFill());
+        if(line1.getStroke().equals(playingBall.ball.getFill()))
+        {
+            //  System.out.println("----->>>>>>>>>>>>>>int the lin1");
+            if(line2.getBoundsInParent().intersects(playingBall.ball.getBoundsInParent()))
+            {
+                return true;
+            }
+            if(line3.getBoundsInParent().intersects(playingBall.ball.getBoundsInParent())){
+                return true;
+            }
+
+            if(line4.getBoundsInParent().intersects(playingBall.ball.getBoundsInParent())){
+                return true;
+            }
+            else
+                return false;
+        }
+
+        if(line2.getStroke().equals(playingBall.ball.getFill()))
+        {
+
+            //System.out.println("----->>>>>>>>>>>>>>int the lin2");
+            if(line1.getBoundsInParent().intersects(playingBall.ball.getBoundsInParent()))
+            {
+                return true;
+            }
+            if(line3.getBoundsInParent().intersects(playingBall.ball.getBoundsInParent()))
+            {
+                return true;
+            }
+            if(line4.getBoundsInParent().intersects(playingBall.ball.getBoundsInParent()))
+            {
+                return true;
+            }else
+                return false;
+        }
+        if(line3.getStroke().equals(playingBall.ball.getFill()))
+        {
+
+            //System.out.println("in line 3" );
+            if(line1.getBoundsInParent().intersects(playingBall.ball.getBoundsInParent()))
+            {
+                return true;
+            }
+            if(line2.getBoundsInParent().intersects(playingBall.ball.getBoundsInParent()))
+            {
+                return true;
+            }
+            if(line4.getBoundsInParent().intersects(playingBall.ball.getBoundsInParent()))
+            {
+                return true;
+            }else
+                return false;
+        }
+
+        else
+        {
+
+            ///System.out.println("----->>>>>>>>>>>>>>int the lin4");
+            if(line3.getBoundsInParent().intersects(playingBall.ball.getBoundsInParent()))
+            {
+                return true;
+            }
+
+            if(line2.getBoundsInParent().intersects(playingBall.ball.getBoundsInParent()))
+            {
+                return true;
+            }
+
+            if(line1.getBoundsInParent().intersects(playingBall.ball.getBoundsInParent()))
+            {
+                return true;
+            }
+            else
+
+                return false;
+        }
     }
-}
+
+
+    }

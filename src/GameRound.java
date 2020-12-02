@@ -46,9 +46,9 @@ public class GameRound {
             pane4 = FXMLLoader.load(getClass().getResource("stars.fxml"));
             Random random = new Random();
             //int obs = random.nextInt(4)+1;
-            int obs = 2;
+            int obs = 1;
             if(obs == 1) {
-                FXMLLoader load = new FXMLLoader(getClass().getResource("TriangleObs.fxml"));
+                FXMLLoader load = new FXMLLoader(getClass().getResource("LineObs.fxml"));
                 pane5 = load.load();
                 obstacle = load.getController();
             }
@@ -62,12 +62,20 @@ public class GameRound {
             }
 
             else if(obs == 3) {
-                pane5 = FXMLLoader.load(getClass().getResource("squareObs.fxml"));
-            }
+                FXMLLoader load = new FXMLLoader(getClass().getResource("SquareObs.fxml"));
+                pane5 = load.load();
+                obstacle = load.getController();}
 
             else {
-                pane5 = FXMLLoader.load(getClass().getResource("lineObs.fxml"));
+                FXMLLoader load = new FXMLLoader(getClass().getResource("TriangleObs.fxml"));
+                pane5 = load.load();
+                obstacle = load.getController();
+
+
+
             }
+
+
 
             if(now) {
                 pane4.setVisible(true);

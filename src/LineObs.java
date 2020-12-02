@@ -38,6 +38,87 @@ public class LineObs extends Obstacles  {
 
     @Override
     boolean cannotPass(Ball playingBall) {
-        return false;
+
+        // System.out.println("in triangle");
+        //System.out.println(line3.getStroke());
+        //System.out.println(playingBall.ball.getFill());
+        if(line1.getStroke().equals(playingBall.ball.getFill()))
+        {
+            //  System.out.println("----->>>>>>>>>>>>>>int the lin1");
+            if(line2.getBoundsInParent().intersects(playingBall.ball.getBoundsInParent()))
+            {
+                return true;
+            }
+            if(line3.getBoundsInParent().intersects(playingBall.ball.getBoundsInParent())){
+                return true;
+            }
+
+            if(line4.getBoundsInParent().intersects(playingBall.ball.getBoundsInParent())){
+                return true;
+            }
+            else
+                return false;
+        }
+
+        if(line2.getStroke().equals(playingBall.ball.getFill()))
+        {
+
+            //System.out.println("----->>>>>>>>>>>>>>int the lin2");
+            if(line1.getBoundsInParent().intersects(playingBall.ball.getBoundsInParent()))
+            {
+                return true;
+            }
+            if(line3.getBoundsInParent().intersects(playingBall.ball.getBoundsInParent()))
+            {
+                return true;
+            }
+            if(line4.getBoundsInParent().intersects(playingBall.ball.getBoundsInParent()))
+            {
+                return true;
+            }else
+                return false;
+        }
+        if(line3.getStroke().equals(playingBall.ball.getFill()))
+        {
+
+            //System.out.println("in line 3" );
+            if(line1.getBoundsInParent().intersects(playingBall.ball.getBoundsInParent()))
+            {
+                return true;
+            }
+            if(line2.getBoundsInParent().intersects(playingBall.ball.getBoundsInParent()))
+            {
+                return true;
+            }
+            if(line4.getBoundsInParent().intersects(playingBall.ball.getBoundsInParent()))
+            {
+                return true;
+            }else
+                return false;
+        }
+
+        else
+        {
+
+            ///System.out.println("----->>>>>>>>>>>>>>int the lin4");
+            if(line3.getBoundsInParent().intersects(playingBall.ball.getBoundsInParent()))
+            {
+                return true;
+            }
+
+            if(line2.getBoundsInParent().intersects(playingBall.ball.getBoundsInParent()))
+            {
+                return true;
+            }
+
+            if(line1.getBoundsInParent().intersects(playingBall.ball.getBoundsInParent()))
+            {
+                return true;
+            }
+            else
+
+                return false;
+        }
     }
+
 }
