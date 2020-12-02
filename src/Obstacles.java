@@ -1,8 +1,4 @@
-public class Obstacles extends GameElements  {
-    double posx;
-    double posy;
+public abstract class Obstacles extends GameElements  {
 
-   // public Obstacles(String type1, double x, double y) {
-     //   super(type1, x, y);
-    }
-//}
+    abstract boolean cannotPass(Ball playingBall);
+}

@@ -36,4 +36,8 @@ public class LineObs extends Obstacles  {
         timeline.play();
     }
 
+    @Override
+    boolean cannotPass(Ball playingBall) {
+        return false;
+    }
 }

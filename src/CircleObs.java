@@ -11,7 +11,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.IOException;
 
-public class CircleObs extends GameElements implements ActionListener {
+public class CircleObs extends Obstacles implements ActionListener {
 
     @FXML
     public  Arc arc1;
@@ -57,6 +57,61 @@ public class CircleObs extends GameElements implements ActionListener {
         a2 = arc2.getBoundsInLocal();
         a3 = arc3.getBoundsInLocal();
         a4 = arc4.getBoundsInLocal();
+    }
+
+    @Override
+    boolean cannotPass( Ball playingBall){
+        if(playingBall.ball.getFill() == arc1.getFill()){
+            if(arc2.getBoundsInParent().intersects(playingBall.ball.getBoundsInParent()) && !innerpart.getBoundsInParent().intersects(playingBall.ball.getBoundsInParent()))
+                return true;
+            if(arc3.getBoundsInParent().intersects(playingBall.ball.getBoundsInParent()) && !innerpart.getBoundsInParent().intersects(playingBall.ball.getBoundsInParent())){
+                return true;
+            }
+            if(arc4.getBoundsInParent().intersects(playingBall.ball.getBoundsInParent()) && !innerpart.getBoundsInParent().intersects(playingBall.ball.getBoundsInParent())){
+                return true;
+            }
+            else
+                return false;
+        }
+
+        if(playingBall.ball.getFill() == arc2.getFill()){
+            if(arc1.getBoundsInParent().intersects(playingBall.ball.getBoundsInParent()) && !innerpart.getBoundsInParent().intersects(playingBall.ball.getBoundsInParent()))
+                return true;
+            if(arc3.getBoundsInParent().intersects(playingBall.ball.getBoundsInParent()) && !innerpart.getBoundsInParent().intersects(playingBall.ball.getBoundsInParent())){
+                return true;
+            }
+            if(arc4.getBoundsInParent().intersects(playingBall.ball.getBoundsInParent()) && !innerpart.getBoundsInParent().intersects(playingBall.ball.getBoundsInParent())){
+                return true;
+            }
+            else
+                return false;
+        }
+
+        if(playingBall.ball.getFill() == arc3.getFill()){
+            if(arc1.getBoundsInParent().intersects(playingBall.ball.getBoundsInParent()) && !innerpart.getBoundsInParent().intersects(playingBall.ball.getBoundsInParent()))
+                return true;
+            if(arc2.getBoundsInParent().intersects(playingBall.ball.getBoundsInParent()) && !innerpart.getBoundsInParent().intersects(playingBall.ball.getBoundsInParent())){
+                return true;
+            }
+            if(arc4.getBoundsInParent().intersects(playingBall.ball.getBoundsInParent()) && !innerpart.getBoundsInParent().intersects(playingBall.ball.getBoundsInParent())){
+                return true;
+            }
+            else
+                return false;
+        }
+
+        else {
+            if(arc1.getBoundsInParent().intersects(playingBall.ball.getBoundsInParent()) && !innerpart.getBoundsInParent().intersects(playingBall.ball.getBoundsInParent()))
+                return true;
+            if(arc2.getBoundsInParent().intersects(playingBall.ball.getBoundsInParent()) && !innerpart.getBoundsInParent().intersects(playingBall.ball.getBoundsInParent())){
+                return true;
+            }
+            if(arc3.getBoundsInParent().intersects(playingBall.ball.getBoundsInParent()) && !innerpart.getBoundsInParent().intersects(playingBall.ball.getBoundsInParent())){
+                return true;
+            }
+            else
+                return false;
+        }
     }
 
 }

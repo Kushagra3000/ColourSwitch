@@ -12,7 +12,7 @@ import javax.swing.*;
 import java.awt.event.ActionListener;
 import java.io.IOException;
 
-public class Ball extends Obstacles implements ActionListener {
+public class Ball implements ActionListener {
      static int points ;
     static double posy=500;
     static double posx = 500;
@@ -28,7 +28,7 @@ public class Ball extends Obstacles implements ActionListener {
 
     @FXML
     private void initialize(){
-        }
+    }
 
     @FXML
     private void jumpBall(ActionEvent k) throws IOException {

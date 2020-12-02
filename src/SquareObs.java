@@ -6,7 +6,7 @@ import javafx.scene.shape.Line;
 import javafx.scene.transform.Rotate;
 import javafx.util.Duration;
 
-public class SquareObs {
+public class SquareObs extends Obstacles {
 
     @FXML
     private Line line1;
@@ -54,5 +54,10 @@ public class SquareObs {
                 new KeyFrame(Duration.ZERO, new KeyValue(rotation.angleProperty(), 0)),
                 new KeyFrame(Duration.seconds(1000), new KeyValue(rotation.angleProperty(), 36000)));
         timeline.play();
+    }
+
+    @Override
+    boolean cannotPass(Ball playingBall) {
+        return false;
     }
 }

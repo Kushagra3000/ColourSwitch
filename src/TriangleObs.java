@@ -27,20 +27,20 @@ public class TriangleObs extends Obstacles {
 
     @FXML
     private void initialize(){
-        r1.setPivotX(0);
-        r1.setPivotY(0);
+        r1.setPivotX(-20);
+        r1.setPivotY(5);
         line1.getTransforms().add(r1);
 
-        r2.setPivotX(0);
-        r2.setPivotY(0);
+        r2.setPivotX(-20);
+        r2.setPivotY(5);
         line2.getTransforms().add(r2);
 
-        r3.setPivotX(-65);
-        r3.setPivotY(105);
+        r3.setPivotX(-90);
+        r3.setPivotY(110);
         line3.getTransforms().add(r3);
 
-        r4.setPivotX(-57);
-        r4.setPivotY(-56);
+        r4.setPivotX(-80);
+        r4.setPivotY(-48);
         line4.getTransforms().add(r4);
 
         addRota(r1);
@@ -56,4 +56,8 @@ public class TriangleObs extends Obstacles {
         timeline.play();
     }
 
+    @Override
+    boolean cannotPass(Ball playingBall) {
+        return false;
+    }
 }

@@ -33,7 +33,7 @@ public class GameRound {
     private double t=0;
     AnchorPane pane4 ;
     AnchorPane pane5;
-    CircleObs con;
+    Obstacles obstacle;
     Ball PlayingBall;
 
     @FXML
@@ -47,15 +47,18 @@ public class GameRound {
             Random random = new Random();
             //int obs = random.nextInt(4)+1;
             int obs = 2;
-            FXMLLoader load5 = new FXMLLoader(getClass().getResource("circleObs.fxml"));
-            if(obs == 1)
-                pane5 = FXMLLoader.load(getClass().getResource("TriangleObs.fxml"));
+            if(obs == 1) {
+                FXMLLoader load = new FXMLLoader(getClass().getResource("TriangleObs.fxml"));
+                pane5 = load.load();
+                obstacle = load.getController();
+            }
 
 
             else if(obs == 2) {
                 //pane5 = FXMLLoader.load(getClass().getResource("circleObs.fxml"));
-                pane5 = load5.load();
-                con = load5.getController();
+                FXMLLoader load = new FXMLLoader(getClass().getResource("circleObs.fxml"));
+                pane5 = load.load();
+                obstacle = load.getController();
             }
 
             else if(obs == 3) {
@@ -130,24 +133,6 @@ public class GameRound {
         gameplay.getChildren().setAll(over);
     }
 
-    boolean checkObsCollision(int obs){
-        if(obs == 4){
-            if(con.arc1.getBoundsInParent().intersects(PlayingBall.ball.getBoundsInParent()) && !con.innerpart.getBoundsInParent().intersects(PlayingBall.ball.getBoundsInParent()))
-                return true;
-            if(con.arc2.getBoundsInParent().intersects(PlayingBall.ball.getBoundsInParent()) && !con.innerpart.getBoundsInParent().intersects(PlayingBall.ball.getBoundsInParent())){
-                return true;
-            }
-            if(con.arc3.getBoundsInParent().intersects(PlayingBall.ball.getBoundsInParent()) && !con.innerpart.getBoundsInParent().intersects(PlayingBall.ball.getBoundsInParent())){
-                return true;
-            }
-            else
-                return false;
-        }
-
-        else
-            return false;
-    }
-
     private void update() throws IOException {
         t =+0.016;
         if(Ball.posy<=222)
@@ -164,7 +149,7 @@ public class GameRound {
             gameOver();
         }
 
-        if(checkObsCollision(4)){
+        if(obstacle.cannotPass(PlayingBall)){
             System.out.println("Game Should be Over");
             Gmo.setVisible(true);
         }
