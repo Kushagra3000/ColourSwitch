@@ -21,11 +21,6 @@ public class Game implements Initializable {
     @FXML
     public ImageView c1;
 
-//    Game(){
-//        System.out.println("New try");
-//    }
-
-    
     @FXML
     private AnchorPane menuPage;
 
