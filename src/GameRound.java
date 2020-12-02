@@ -28,8 +28,6 @@ public class GameRound {
     @FXML
     private ImageView Gmo;
 
-    static boolean now = true ;
-
     private double t=0;
     AnchorPane pane4 ;
     AnchorPane pane5;
@@ -74,24 +72,15 @@ public class GameRound {
                 FXMLLoader load = new FXMLLoader(getClass().getResource("TriangleObs.fxml"));
                 pane5 = load.load();
                 obstacle = load.getController();
-
-
-
             }
 
+            pane4.setVisible(true);
+            Gmo.setVisible(false);
+            gameplay.getChildren().addAll(pane3);
+            gameplay.getChildren().addAll(pane4);
+            gameplay.getChildren().addAll(pane5);
 
 
-            if(now) {
-                pane4.setVisible(true);
-                Gmo.setVisible(false);
-                gameplay.getChildren().addAll(pane3);
-                gameplay.getChildren().addAll(pane4);
-                gameplay.getChildren().addAll(pane5);
-            }
-
-            if(!now){
-                //gameplay.getChildren().removeAll(pane3);
-            }
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -110,33 +99,10 @@ public class GameRound {
 
     }
 
-
-
     @FXML
     void pauseMenu() throws IOException {
-        now = false;
         Pane pausePane = FXMLLoader.load(getClass().getResource("PauseMenu.fxml"));
         gameplay.getChildren().setAll(pausePane);
-    }
-
-    @FXML
-    void ResumeGame() throws IOException {
-        now = true;
-        AnchorPane pausePane = FXMLLoader.load(getClass().getResource("GamePlayPage.fxml"));
-        gameplay.getChildren().setAll(pausePane);
-    }
-
-
-    @FXML
-    void backToMenu() throws IOException {
-        AnchorPane menu = FXMLLoader.load(getClass().getResource("MenuPage.fxml"));
-        gameplay.getChildren().setAll(menu);
-    }
-
-    @FXML
-    void SaveMenu() throws IOException{
-        AnchorPane menu = FXMLLoader.load(getClass().getResource("MenuPage.fxml"));
-        gameplay.getChildren().setAll(menu);
     }
 
     @FXML
@@ -147,9 +113,7 @@ public class GameRound {
 
     private void update() throws IOException {
         t =+0.016;
-        //if(Ball.posy<=222)
         if(PlayingBall.ball.getBoundsInParent().intersects(star.star2.getBoundsInParent()))
-        // PlayingBall.collectPoints(star);
         {
             points=+1;
             score.setText(points +"");

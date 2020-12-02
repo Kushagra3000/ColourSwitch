@@ -6,27 +6,25 @@ import java.io.IOException;
 
 public class Pause {
 
-    private GameRound currGame;
+    @FXML
+    public AnchorPane PausePage;
 
-//    Pause(GameRound game){
-//        currGame = game;
-//    }
-
-
-    //@FXML
- //   void SaveMenu() throws IOException{
-   //     AnchorPane menu = FXMLLoader.load(getClass().getResource("MenuPage.fxml"));
-       // gameplay.getChildren().setAll(menu);
-   // }
-    void resumeGame() throws IOException {
-        currGame.ResumeGame();
+    @FXML
+    void ResumeGame() throws IOException {
+        AnchorPane pausePane = FXMLLoader.load(getClass().getResource("GamePlayPage.fxml"));
+        PausePage.getChildren().setAll(pausePane);
     }
 
-    void SaveGame(){
-
+    @FXML
+    void backToMenu() throws IOException {
+        AnchorPane menu = FXMLLoader.load(getClass().getResource("MenuPage.fxml"));
+        PausePage.getChildren().setAll(menu);
     }
 
-    void BackToMenu(){}
-
+    @FXML
+    void SaveMenu() throws IOException{
+        AnchorPane menu = FXMLLoader.load(getClass().getResource("MenuPage.fxml"));
+        PausePage.getChildren().setAll(menu);
+    }
 
 }
