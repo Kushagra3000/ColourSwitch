@@ -8,16 +8,16 @@ import javafx.util.Duration;
 public class LineObs extends Obstacles  {
 
     @FXML
-    private Line line1;
+    public Line line1;
 
     @FXML
-    private Line line2;
+    public Line line2;
 
     @FXML
-    private Line line3;
+    public Line line3;
 
     @FXML
-    private Line line4;
+    public Line line4;
 
 
     @FXML
@@ -119,6 +119,60 @@ public class LineObs extends Obstacles  {
 
                 return false;
         }
+    }
+
+    @Override
+    void MoveDown(double length) {
+//        Timeline t1 = new Timeline(new KeyFrame(Duration.millis(600),
+//                new KeyValue(line1.layoutYProperty(), 800)));
+//        t1.setCycleCount(1);
+//        t1.play();
+//
+//        Timeline t2 = new Timeline(new KeyFrame(Duration.millis(600),
+//                new KeyValue(line2.layoutYProperty(), 800)));
+//        t2.setCycleCount(1);
+//        t2.play();
+//
+//        Timeline t3 = new Timeline(new KeyFrame(Duration.millis(600),
+//                new KeyValue(line3.layoutYProperty(), 800)));
+//        t3.setCycleCount(1);
+//        t3.play();
+//
+//        Timeline t4 = new Timeline(new KeyFrame(Duration.millis(600),
+//                new KeyValue(line1.layoutYProperty(), 800)));
+//        t4.setCycleCount(1);
+//        t4.play();
+        length = line1.getLayoutY();
+        if(length > 750)
+            length = -1400;
+        length++;
+        line1.setLayoutY(length);
+        line2.setLayoutY(length);
+        line3.setLayoutY(length);
+        line4.setLayoutY(length);
+    }
+
+    @Override
+    void MoveToFrame() {
+        Timeline t1 = new Timeline(new KeyFrame(Duration.millis(600),
+                new KeyValue(line1.layoutYProperty(), 209)));
+        t1.setCycleCount(1);
+        t1.play();
+
+        Timeline t2 = new Timeline(new KeyFrame(Duration.millis(600),
+                new KeyValue(line2.layoutYProperty(), 209)));
+        t2.setCycleCount(1);
+        t2.play();
+
+        Timeline t3 = new Timeline(new KeyFrame(Duration.millis(600),
+                new KeyValue(line3.layoutYProperty(), 209)));
+        t3.setCycleCount(1);
+        t3.play();
+
+        Timeline t4 = new Timeline(new KeyFrame(Duration.millis(600),
+                new KeyValue(line4.layoutYProperty(), 209)));
+        t4.setCycleCount(1);
+        t4.play();
     }
 
 }

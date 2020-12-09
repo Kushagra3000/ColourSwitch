@@ -3,11 +3,12 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.shape.*?>
 
-<AnchorPane fx:id="squareObstacle" prefHeight="483.0" prefWidth="621.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="SquareObs">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="SquareObs">
    <children>
-      <Line fx:id="line1" endX="65.0" layoutX="494.0" layoutY="124.0" startX="-65.0" stroke="#fae100" strokeLineCap="ROUND" strokeWidth="10.0" />
-      <Line fx:id="line2" endY="115.0" layoutX="429.0" layoutY="139.0" startY="-15.0" stroke="#900dff" strokeLineCap="ROUND" strokeWidth="10.0" />
-      <Line fx:id="line3" endX="15.0" layoutX="544.0" layoutY="254.0" startX="-115.0" stroke="#ff0181" strokeLineCap="ROUND" strokeWidth="10.0" />
-      <Line fx:id="line4" endX="-100.0" endY="-115.0" layoutX="659.0" layoutY="239.0" startX="-100.0" startY="15.0" stroke="#32dbf0" strokeLineCap="ROUND" strokeWidth="10.0" />
+      <Line fx:id="line1" endX="-23.0" endY="134.0" layoutX="450.0" layoutY="68.0" startX="118.0" startY="134.0" stroke="#32dbf0" strokeLineCap="ROUND" strokeWidth="10.0" />
+      <Line fx:id="line2" endX="118.0" fill="#900dff" layoutX="450.0" layoutY="68.0" startX="-18.0" stroke="#900dff" strokeLineCap="ROUND" strokeWidth="10.0" />
+      <Line fx:id="line3" endX="-23.0" endY="1.0" layoutX="450.0" layoutY="68.0" startX="-23.0" startY="129.0" stroke="#fae100" strokeLineCap="ROUND" strokeWidth="10.0" />
+      <Line fx:id="line4" endX="123.0" endY="134.0" fill="BLACK" layoutX="450.0" layoutY="68.0" startX="123.0" startY="-1.0" stroke="#ff0181" strokeLineCap="ROUND" strokeWidth="10.0" />
+      <Polygon fx:id="inside" fill="#2197ff00" layoutX="450.0" layoutY="68.0" points="-18.000030517578125, 129.0, 118.0, 129.0, 118.0, 5.0, -18.000030517578125, 5.0" stroke="TRANSPARENT" strokeType="INSIDE" />
    </children>
 </AnchorPane>

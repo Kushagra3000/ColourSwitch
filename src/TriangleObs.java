@@ -3,22 +3,23 @@ import javafx.animation.KeyValue;
 import javafx.animation.Timeline;
 import javafx.fxml.FXML;
 import javafx.scene.shape.Line;
+import javafx.scene.shape.Polygon;
 import javafx.scene.transform.Rotate;
 import javafx.util.Duration;
 
 public class TriangleObs extends Obstacles {
 
     @FXML
-    private Line line1;
+    public Line line1;
 
     @FXML
-    private Line line2;
+    public Line line2;
 
     @FXML
-    private Line line3;
+    public Line line3;
 
     @FXML
-    private Line line4;
+    public Polygon inside;
 
     Rotate r1 = new Rotate();
     Rotate r2 = new Rotate();
@@ -27,21 +28,21 @@ public class TriangleObs extends Obstacles {
 
     @FXML
     private void initialize(){
-        r1.setPivotX(-20);
-        r1.setPivotY(5);
+        r1.setPivotX(100);
+        r1.setPivotY(70);
         line1.getTransforms().add(r1);
 
-        r2.setPivotX(-20);
-        r2.setPivotY(5);
+        r2.setPivotX(100);
+        r2.setPivotY(70);
         line2.getTransforms().add(r2);
 
-        r3.setPivotX(-90);
-        r3.setPivotY(110);
+        r3.setPivotX(100);
+        r3.setPivotY(70);
         line3.getTransforms().add(r3);
 
-        r4.setPivotX(-80);
-        r4.setPivotY(-48);
-        line4.getTransforms().add(r4);
+        r4.setPivotX(100);
+        r4.setPivotY(70);
+        inside.getTransforms().add(r4);
 
         addRota(r1);
         addRota(r2);
@@ -57,25 +58,18 @@ public class TriangleObs extends Obstacles {
     }
 
     @Override
-    boolean cannotPass(Ball playingBall)
-    {
-       // System.out.println("in triangle");
-        //System.out.println(line3.getStroke());
-        //System.out.println(playingBall.ball.getFill());
+    boolean cannotPass(Ball playingBall){
+
         if(line1.getStroke().equals(playingBall.ball.getFill()))
         {
-          //  System.out.println("----->>>>>>>>>>>>>>int the lin1");
-            if(line2.getBoundsInParent().intersects(playingBall.ball.getBoundsInParent()))
+            if(line2.getBoundsInParent().intersects(playingBall.ball.getBoundsInParent()) && !inside.getBoundsInParent().intersects(playingBall.ball.getBoundsInParent()))
             {
                 return true;
             }
-            if(line3.getBoundsInParent().intersects(playingBall.ball.getBoundsInParent())){
+            if(line3.getBoundsInParent().intersects(playingBall.ball.getBoundsInParent()) && !inside.getBoundsInParent().intersects(playingBall.ball.getBoundsInParent())){
                 return true;
             }
 
-            if(line4.getBoundsInParent().intersects(playingBall.ball.getBoundsInParent())){
-                return true;
-            }
             else
                 return false;
         }
@@ -83,44 +77,34 @@ public class TriangleObs extends Obstacles {
         if(line2.getStroke().equals(playingBall.ball.getFill()))
         {
 
-            //System.out.println("----->>>>>>>>>>>>>>int the lin2");
-            if(line1.getBoundsInParent().intersects(playingBall.ball.getBoundsInParent()))
+            if(line1.getBoundsInParent().intersects(playingBall.ball.getBoundsInParent()) && !inside.getBoundsInParent().intersects(playingBall.ball.getBoundsInParent()))
             {
                 return true;
             }
-            if(line3.getBoundsInParent().intersects(playingBall.ball.getBoundsInParent()))
+            if(line3.getBoundsInParent().intersects(playingBall.ball.getBoundsInParent()) && !inside.getBoundsInParent().intersects(playingBall.ball.getBoundsInParent()))
             {
                 return true;
             }
-            if(line4.getBoundsInParent().intersects(playingBall.ball.getBoundsInParent()))
-            {
-                return true;
-            }else
+
+            else
                 return false;
         }
-        if(line3.getStroke().equals(playingBall.ball.getFill()))
-        {
+        if(line3.getStroke().equals(playingBall.ball.getFill())){
 
-            //System.out.println("in line 3" );
-            if(line1.getBoundsInParent().intersects(playingBall.ball.getBoundsInParent()))
+            if(line1.getBoundsInParent().intersects(playingBall.ball.getBoundsInParent()) && !inside.getBoundsInParent().intersects(playingBall.ball.getBoundsInParent()))
             {
                 return true;
             }
-            if(line2.getBoundsInParent().intersects(playingBall.ball.getBoundsInParent()))
+            if(line2.getBoundsInParent().intersects(playingBall.ball.getBoundsInParent()) && !inside.getBoundsInParent().intersects(playingBall.ball.getBoundsInParent()))
             {
                 return true;
             }
-            if(line4.getBoundsInParent().intersects(playingBall.ball.getBoundsInParent()))
-            {
-                return true;
-            }else
+
+            else
                 return false;
         }
 
-        else
-        {
-
-            ///System.out.println("----->>>>>>>>>>>>>>int the lin4");
+        else {
             if(line3.getBoundsInParent().intersects(playingBall.ball.getBoundsInParent()))
             {
                 return true;
@@ -139,5 +123,22 @@ public class TriangleObs extends Obstacles {
 
                 return false;
         }
-        }
+    }
+
+    @Override
+    void MoveDown(double length) {
+        length = line1.getLayoutY();
+        if(length > 750)
+            length = -1400;
+        length++;
+        line1.setLayoutY(length);
+        line2.setLayoutY(length);
+        line3.setLayoutY(length);
+        inside.setLayoutY(length);
+    }
+
+    @Override
+    void MoveToFrame() {
+
+    }
 }

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.shape.*?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ColourSwitchingBall">
+   <children>
+      <Arc fill="#900dff" layoutX="530.0" layoutY="210.0" length="90.0" radiusX="20.0" radiusY="20.0" startAngle="90.0" stroke="TRANSPARENT" strokeType="INSIDE" type="ROUND" />
+      <Arc fill="#ff0181" layoutX="530.0" layoutY="210.0" length="90.0" radiusX="20.0" radiusY="20.0" stroke="TRANSPARENT" strokeType="INSIDE" type="ROUND" />
+      <Arc fill="#fae100" layoutX="530.0" layoutY="210.0" length="90.0" radiusX="20.0" radiusY="20.0" startAngle="180.0" stroke="TRANSPARENT" strokeType="INSIDE" type="ROUND" />
+      <Arc fill="#32dbf0" layoutX="530.0" layoutY="210.0" length="90.0" radiusX="20.0" radiusY="20.0" startAngle="270.0" stroke="TRANSPARENT" strokeType="INSIDE" type="ROUND" />
+   </children>
+</AnchorPane>

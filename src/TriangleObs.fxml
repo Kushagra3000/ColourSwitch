@@ -3,11 +3,11 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.shape.*?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="TriangleObs">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="TriangleObs">
    <children>
-      <Line fx:id="line1" endX="-35.33332824707031" endY="-104.33333587646484" layoutX="532.0" layoutY="205.0" startX="-91.0" startY="5.3333282470703125" stroke="#fae100" strokeLineCap="ROUND" strokeWidth="12.0" />
-      <Line fx:id="line2" endX="-28.0" endY="104.33334350585938" layoutX="532.0" layoutY="204.0" startX="-93.0" startY="5.3333282470703125" stroke="#ff0181" strokeLineCap="ROUND" strokeWidth="12.0" />
-      <Line fx:id="line3" endX="-39.0" endY="112.33332824707031" layoutX="599.0" layoutY="100.0" startX="-100.0" stroke="#900dff" strokeLineCap="ROUND" strokeWidth="12.0" />
-      <Line fx:id="line4" endX="-26.0" endY="-48.66667175292969" layoutX="589.0" layoutY="258.0" startX="-81.0" startY="54.333343505859375" stroke="#32dbf0" strokeLineCap="ROUND" strokeWidth="12.0" />
+      <Line fx:id="line1" endX="79.0" endY="-46.0" fill="#ff0181" layoutX="410.0" layoutY="68.0" startX="-16.0" startY="135.0" stroke="#ff0181" strokeLineCap="ROUND" strokeWidth="10.0" />
+      <Line fx:id="line2" endX="196.0" endY="129.0" fill="#FAE100" layoutX="410.0" layoutY="68.0" startX="-15.0" startY="140.0" stroke="#fae100" strokeLineCap="ROUND" strokeWidth="10.0" />
+      <Line fx:id="line3" endX="84.0" endY="-45.0" fill="#900dff" layoutX="410.0" layoutY="68.0" startX="201.0" startY="131.0" stroke="#900dff" strokeLineCap="ROUND" strokeWidth="10.0" />
+      <Polygon fx:id="inside" fill="#2197ff00" layoutX="410.0" layoutY="68.0" points="-11.0, 136, 191.0, 124.0, 81.0, -42.333335876464844" stroke="TRANSPARENT" strokeType="INSIDE" />
    </children>
 </AnchorPane>

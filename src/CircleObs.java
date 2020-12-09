@@ -31,8 +31,11 @@ public class CircleObs extends Obstacles implements ActionListener {
     public static Bounds a1,a2,a3,a4;
 
     @FXML
-    public void initialize() throws IOException {
-        AnchorPane pane3 = FXMLLoader.load(getClass().getResource("playBall.fxml"));
+    public void initialize() {
+//        arc1.setLayoutY(-100);
+//        arc2.setLayoutY(-100);
+//        arc3.setLayoutY(-100);
+//        arc4.setLayoutY(-100);
         Timeline animation = new Timeline(
                 new KeyFrame(Duration.ZERO, new KeyValue(arc1.startAngleProperty(), arc1.getStartAngle(), Interpolator.LINEAR)),
                 new KeyFrame(Duration.seconds(6), new KeyValue(arc1.startAngleProperty(), arc1.getStartAngle() - 360, Interpolator.LINEAR)),
@@ -60,7 +63,7 @@ public class CircleObs extends Obstacles implements ActionListener {
     }
 
     @Override
-    boolean cannotPass( Ball playingBall){
+    boolean cannotPass(Ball playingBall){
         if(playingBall.ball.getFill() == arc1.getFill()){
             if(arc2.getBoundsInParent().intersects(playingBall.ball.getBoundsInParent()) && !innerpart.getBoundsInParent().intersects(playingBall.ball.getBoundsInParent()))
                 return true;
@@ -113,5 +116,64 @@ public class CircleObs extends Obstacles implements ActionListener {
                 return false;
         }
     }
+
+    @Override
+    void MoveDown(double length) {
+//        Timeline t1 = new Timeline(new KeyFrame(Duration.millis(600),
+//                new KeyValue(arc1.layoutYProperty(), 800)));
+//        t1.setCycleCount(1);
+//        t1.play();
+//
+//        Timeline t2 = new Timeline(new KeyFrame(Duration.millis(600),
+//                new KeyValue(arc2.layoutYProperty(), 800)));
+//        t2.setCycleCount(1);
+//        t2.play();
+//
+//        Timeline t3 = new Timeline(new KeyFrame(Duration.millis(600),
+//                new KeyValue(arc3.layoutYProperty(), 800)));
+//        t3.setCycleCount(1);
+//        t3.play();
+//
+//        Timeline t4 = new Timeline(new KeyFrame(Duration.millis(600),
+//                new KeyValue(arc4.layoutYProperty(), 800)));
+//        t4.setCycleCount(1);
+//        t4.play();
+        length = arc1.getLayoutY();
+        if(length > 750)
+            length = -1400;
+        length++;
+        arc1.setLayoutY(length);
+        arc2.setLayoutY(length);
+        arc3.setLayoutY(length);
+        arc4.setLayoutY(length);
+        innerpart.setLayoutY(length);
+
+    }
+
+    @Override
+    void MoveToFrame() {
+        Timeline t1 = new Timeline(new KeyFrame(Duration.millis(600),
+                new KeyValue(arc1.layoutYProperty(), 209)));
+        t1.setCycleCount(1);
+        t1.play();
+
+        Timeline t2 = new Timeline(new KeyFrame(Duration.millis(600),
+                new KeyValue(arc2.layoutYProperty(), 209)));
+        t2.setCycleCount(1);
+        t2.play();
+
+        Timeline t3 = new Timeline(new KeyFrame(Duration.millis(600),
+                new KeyValue(arc3.layoutYProperty(), 209)));
+        t3.setCycleCount(1);
+        t3.play();
+
+        Timeline t4 = new Timeline(new KeyFrame(Duration.millis(600),
+                new KeyValue(arc4.layoutYProperty(), 209)));
+        t4.setCycleCount(1);
+        t4.play();
+
+        Obstacles.wait = false;
+    }
+
 
 }

@@ -6,7 +6,7 @@
 <?import javafx.scene.shape.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane fx:id="gameplay" prefHeight="600.0" prefWidth="1024.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GameRound">
+<AnchorPane fx:id="gameplay" prefHeight="600.0" prefWidth="1024.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GameRound">
    <children>
       <ImageView accessibleRole="TEXT" fitHeight="678.0" fitWidth="1024.0" layoutY="-46.0" pickOnBounds="true" preserveRatio="true">
          <image>
@@ -51,6 +51,7 @@
                   <Font name="Fira Code Light" size="48.0" />
                </font></Label>
          </children></TextFlow>
+      <AnchorPane fx:id="centre" layoutX="276.0" layoutY="-5.0" prefHeight="635.0" prefWidth="468.0" />
 
 
    </children>

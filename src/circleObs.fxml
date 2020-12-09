@@ -3,12 +3,12 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.shape.*?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="CircleObs">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="CircleObs">
    <children>
-      <Arc fx:id="arc3" fill="#32ddf000" layoutX="495.0" layoutY="208.0" length="90.0" radiusX="100.0" radiusY="100.0" startAngle="180.0" stroke="#32dbf0" strokeLineCap="ROUND" strokeWidth="20.0" />
+      <Arc fx:id="arc3" fill="#32ddf000" layoutX="495.0" layoutY="209.0" length="90.0" radiusX="100.0" radiusY="100.0" startAngle="180.0" stroke="#32dbf0" strokeLineCap="ROUND" strokeWidth="20.0" />
       <Arc fx:id="arc1" fill="#fae10000" layoutX="495.0" layoutY="209.0" length="90.0" radiusX="100.0" radiusY="100.0" startAngle="90.0" stroke="#fae100" strokeLineCap="ROUND" strokeWidth="20.0" />
       <Arc fx:id="arc4" fill="#8f0fff00" layoutX="495.0" layoutY="209.0" length="90.0" radiusX="100.0" radiusY="100.0" startAngle="270.0" stroke="#900dff" strokeLineCap="ROUND" strokeWidth="20.0" />
       <Arc fx:id="arc2" fill="#ff038500" layoutX="495.0" layoutY="209.0" length="90.0" radiusX="100.0" radiusY="100.0" stroke="#ff0181" strokeLineCap="ROUND" strokeWidth="20.0" />
-      <Circle fx:id="innerpart" fill="#1f93ff00" layoutX="494.0" layoutY="208.0" radius="91.0" stroke="TRANSPARENT" strokeType="INSIDE" />
+      <Circle fx:id="innerpart" fill="#2197ff00" layoutX="495.0" layoutY="209.0" radius="91.0" stroke="TRANSPARENT" strokeType="INSIDE" />
    </children>
 </AnchorPane>
