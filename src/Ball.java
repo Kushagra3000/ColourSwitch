@@ -22,8 +22,6 @@ public class Ball implements ActionListener {
     @FXML
     private AnchorPane root;
 
-
-
     @FXML
     private void initialize(){
     }

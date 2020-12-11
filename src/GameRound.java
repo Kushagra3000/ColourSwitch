@@ -5,6 +5,9 @@ import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
+import javafx.scene.paint.Color;
+import javafx.scene.paint.Paint;
+
 import java.io.IOException;
 import java.util.Random;
 
@@ -21,6 +24,8 @@ public class GameRound {
 
     @FXML
     private ImageView Gmo;
+
+    public ColourSwitchingBall cball;
 
     private double t=0;
     AnchorPane pane4 ;
@@ -66,6 +71,10 @@ public class GameRound {
             AnchorPane pane8 = load4.load();
             triangleObs = load4.getController();
 
+            FXMLLoader load5 = new FXMLLoader(getClass().getResource("colourSwitching.fxml"));
+            AnchorPane pane9 = load5.load();
+            cball=load5.getController();
+
             ResetObstacle();
 
             pane4.setVisible(true);
@@ -76,6 +85,7 @@ public class GameRound {
             gameplay.getChildren().addAll(pane6);
             gameplay.getChildren().addAll(pane7);
             gameplay.getChildren().addAll(pane8);
+            gameplay.getChildren().addAll(pane9);
 
 
         } catch (IOException e) {
@@ -112,11 +122,26 @@ public class GameRound {
     private void update() throws IOException {
         t =+0.016;
         if(PlayingBall.ball.getBoundsInParent().intersects(star.star2.getBoundsInParent())) {
-            points=+1;
+            star.star2.setLayoutY(-200);
+            points++;
             score.setText(points +"");
-            gameplay.getChildren().removeAll(pane4);
-            pane4.setVisible(false);
         }
+
+        if(PlayingBall.ball.getBoundsInParent().intersects(cball.colourball.getBoundsInParent())) {
+            Color [] arr= new Color[4];
+            arr[0]=Color.valueOf("#900dff");
+            arr[1]=Color.valueOf("#32dbf0");
+            arr[2]= Color.valueOf("#fae100");
+
+            arr[3]=Color.valueOf("#ff0181");
+            Random rr= new Random();
+            int a= rr.nextInt(4);
+
+            PlayingBall.ball.setFill(arr[a]);
+            cball.colourball.setLayoutY(-700);
+        }
+        cball.moveDown();
+        star.moveDown();
 
         if(PlayingBall.ball.getLayoutY()-50 >= 550){
             timer.stop();

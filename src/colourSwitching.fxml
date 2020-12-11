@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
-<?import javafx.scene.shape.*?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ColourSwitchingBall">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ColourSwitchingBall">
    <children>
-      <Arc fill="#900dff" layoutX="530.0" layoutY="210.0" length="90.0" radiusX="20.0" radiusY="20.0" startAngle="90.0" stroke="TRANSPARENT" strokeType="INSIDE" type="ROUND" />
-      <Arc fill="#ff0181" layoutX="530.0" layoutY="210.0" length="90.0" radiusX="20.0" radiusY="20.0" stroke="TRANSPARENT" strokeType="INSIDE" type="ROUND" />
-      <Arc fill="#fae100" layoutX="530.0" layoutY="210.0" length="90.0" radiusX="20.0" radiusY="20.0" startAngle="180.0" stroke="TRANSPARENT" strokeType="INSIDE" type="ROUND" />
-      <Arc fill="#32dbf0" layoutX="530.0" layoutY="210.0" length="90.0" radiusX="20.0" radiusY="20.0" startAngle="270.0" stroke="TRANSPARENT" strokeType="INSIDE" type="ROUND" />
+      <ImageView  fx:id="colourball" fitHeight="49.0"  fitWidth="41.0" layoutX="495.0" layoutY="68.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@Image/ColourSwitchingBall.png" />
+         </image>
+      </ImageView>
    </children>
 </AnchorPane>
