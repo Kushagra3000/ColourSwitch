@@ -64,7 +64,7 @@ public class CircleObs extends Obstacles implements ActionListener {
 
     @Override
     boolean cannotPass(Ball playingBall){
-        if(playingBall.ball.getFill() == arc1.getFill()){
+        if(playingBall.ball.getStroke() == arc1.getFill()){
             if(arc2.getBoundsInParent().intersects(playingBall.ball.getBoundsInParent()) && !innerpart.getBoundsInParent().intersects(playingBall.ball.getBoundsInParent()))
                 return true;
             if(arc3.getBoundsInParent().intersects(playingBall.ball.getBoundsInParent()) && !innerpart.getBoundsInParent().intersects(playingBall.ball.getBoundsInParent())){
@@ -77,7 +77,7 @@ public class CircleObs extends Obstacles implements ActionListener {
                 return false;
         }
 
-        if(playingBall.ball.getFill() == arc2.getFill()){
+        if(playingBall.ball.getStroke() == arc2.getFill()){
             if(arc1.getBoundsInParent().intersects(playingBall.ball.getBoundsInParent()) && !innerpart.getBoundsInParent().intersects(playingBall.ball.getBoundsInParent()))
                 return true;
             if(arc3.getBoundsInParent().intersects(playingBall.ball.getBoundsInParent()) && !innerpart.getBoundsInParent().intersects(playingBall.ball.getBoundsInParent())){
@@ -90,7 +90,7 @@ public class CircleObs extends Obstacles implements ActionListener {
                 return false;
         }
 
-        if(playingBall.ball.getFill() == arc3.getFill()){
+        if(playingBall.ball.getStroke() == arc3.getFill()){
             if(arc1.getBoundsInParent().intersects(playingBall.ball.getBoundsInParent()) && !innerpart.getBoundsInParent().intersects(playingBall.ball.getBoundsInParent()))
                 return true;
             if(arc2.getBoundsInParent().intersects(playingBall.ball.getBoundsInParent()) && !innerpart.getBoundsInParent().intersects(playingBall.ball.getBoundsInParent())){

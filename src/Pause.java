@@ -2,7 +2,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.layout.AnchorPane;
 
-import java.io.IOException;
+import java.io.*;
 
 public class Pause {
 
@@ -10,21 +10,33 @@ public class Pause {
     public AnchorPane PausePage;
 
     @FXML
-    void ResumeGame() throws IOException {
-        AnchorPane pausePane = FXMLLoader.load(getClass().getResource("GamePlayPage.fxml"));
-        PausePage.getChildren().setAll(pausePane);
+    void ResumeGame() throws IOException, ClassNotFoundException {
+
+        FXMLLoader gameRound = new FXMLLoader(getClass().getResource("GamePlayPage.fxml"));
+        AnchorPane setGame = gameRound.load();
+        GameRound GR = gameRound.getController();
+        PausePage.getChildren().setAll(setGame);
+        GR.deserialize(-1);
     }
 
     @FXML
-    void backToMenu() throws IOException {
+    void backToMenu() throws IOException, ClassNotFoundException {
+
+        FXMLLoader gameRound = new FXMLLoader(getClass().getResource("GamePlayPage.fxml"));
+        AnchorPane setGame = gameRound.load();
+        GameRound GR = gameRound.getController();
+        GR.deserialize(-1);
+
         AnchorPane menu = FXMLLoader.load(getClass().getResource("MenuPage.fxml"));
         PausePage.getChildren().setAll(menu);
     }
 
     @FXML
-    void SaveMenu() throws IOException{
+    void SaveMenu() throws IOException {
         AnchorPane menu = FXMLLoader.load(getClass().getResource("MenuPage.fxml"));
         PausePage.getChildren().setAll(menu);
     }
+
+
 
 }

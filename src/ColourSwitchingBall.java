@@ -13,7 +13,6 @@ public class ColourSwitchingBall {
         }
         length++;
         colourball.setLayoutY(length);
-        System.out.println(colourball.getLayoutY() + "FOR COLOUR BALL");
     }
 
 }

@@ -12,8 +12,6 @@ import java.awt.event.ActionListener;
 import java.io.IOException;
 
 public class Ball implements ActionListener {
-    static double posy=500;
-    static double posx = 500;
     @FXML
     public  Circle ball;
 
@@ -30,8 +28,6 @@ public class Ball implements ActionListener {
     private void jumpBall(ActionEvent k) throws IOException {
             Timeline timeline = new Timeline(new KeyFrame(Duration.millis(200),
                     new KeyValue(ball.layoutYProperty(), ball.getLayoutY() - 50)));
-            posy=ball.getLayoutY()-50;
-            posx= ball.getLayoutX();
             bound= ball.getBoundsInParent();
 
             timeline.setCycleCount(1);

@@ -6,12 +6,12 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
-import javafx.scene.paint.Paint;
 
-import java.io.IOException;
+import java.io.*;
+import java.util.ArrayList;
 import java.util.Random;
 
-public class GameRound {
+public class GameRound implements Serializable {
 
     @FXML
     public AnchorPane centre;
@@ -108,7 +108,9 @@ public class GameRound {
     }
 
     @FXML
-    void pauseMenu() throws IOException {
+    void pauseMenu() throws IOException, ClassNotFoundException {
+        timer.stop();
+        serialize();
         Pane pausePane = FXMLLoader.load(getClass().getResource("PauseMenu.fxml"));
         gameplay.getChildren().setAll(pausePane);
     }
@@ -132,45 +134,43 @@ public class GameRound {
             arr[0]=Color.valueOf("#900dff");
             arr[1]=Color.valueOf("#32dbf0");
             arr[2]= Color.valueOf("#fae100");
-
             arr[3]=Color.valueOf("#ff0181");
+
             Random rr= new Random();
             int a= rr.nextInt(4);
 
             PlayingBall.ball.setFill(arr[a]);
             cball.colourball.setLayoutY(-700);
         }
-        cball.moveDown();
-        star.moveDown();
+
 
         if(PlayingBall.ball.getLayoutY()-50 >= 550){
-            timer.stop();
-            Ball.posy=500;
-            gameOver();
+            //timer.stop();
+            //gameOver();
         }
 
         if(sqrObs.cannotPass(PlayingBall)){
-            System.out.println("Game Should be Over");
-             Gmo.setVisible(true);
+            System.out.println("Game Should be Over 1");
+            Gmo.setVisible(true);
             gameOver();
         }
 
         if(circleObs.cannotPass(PlayingBall)){
-            System.out.println("Game Should be Over");
+            System.out.println("Game Should be Over 2");
             Gmo.setVisible(true);
             gameOver();
         }
 
         if(triangleObs.cannotPass(PlayingBall)){
-            System.out.println("Game Should be Over");
+            System.out.println("Game Should be Over 3");
             Gmo.setVisible(true);
             gameOver();
         }
 
         if(lineObs.cannotPass(PlayingBall)){
-            System.out.println("Game Should be Over");
+            System.out.println("Game Should be Over 4");
             Gmo.setVisible(true);
-            gameOver();
+           gameOver();
         }
 
         if (t > 2) {
@@ -185,6 +185,8 @@ public class GameRound {
             triangleObs.MoveDown(temp);
             circleObs.MoveDown(temp);
             lineObs.MoveDown(temp);
+            cball.moveDown();
+            star.moveDown();
         }
     }
 
@@ -212,5 +214,88 @@ public class GameRound {
         lineObs.line2.setLayoutY(-1400);
         lineObs.line3.setLayoutY(-1400);
         lineObs.line4.setLayoutY(-1400);
+    }
+
+    void ElementLoader( GameDetails gd){
+        sqrObs.line1.setLayoutY(gd.obsLocation.get(0));
+        sqrObs.line2.setLayoutY(gd.obsLocation.get(0));
+        sqrObs.line3.setLayoutY(gd.obsLocation.get(0));
+        sqrObs.line4.setLayoutY(gd.obsLocation.get(0));
+
+        triangleObs.line1.setLayoutY(gd.obsLocation.get(1));
+        triangleObs.line2.setLayoutY(gd.obsLocation.get(1));
+        triangleObs.line3.setLayoutY(gd.obsLocation.get(1));
+
+        circleObs.arc1.setLayoutY(gd.obsLocation.get(2));
+        circleObs.arc2.setLayoutY(gd.obsLocation.get(2));
+        circleObs.arc3.setLayoutY(gd.obsLocation.get(2));
+        circleObs.arc4.setLayoutY(gd.obsLocation.get(2));
+
+        lineObs.line1.setLayoutY(gd.obsLocation.get(3));
+        lineObs.line2.setLayoutY(gd.obsLocation.get(3));
+        lineObs.line3.setLayoutY(gd.obsLocation.get(3));
+        lineObs.line4.setLayoutY(gd.obsLocation.get(3));
+
+        star.star2.setLayoutY(gd.star);
+        PlayingBall.ball.setLayoutY(gd.Pball);
+        cball.colourball.setLayoutY(gd.Cball);
+        score.setText("" + gd.Score);
+    }
+
+    void serialize() throws IOException, ClassNotFoundException {
+        ArrayList<Double> locations = new ArrayList<>();
+        locations.add(sqrObs.line1.getLayoutY());
+        locations.add(triangleObs.line1.getLayoutY());
+        locations.add(circleObs.arc1.getLayoutY());
+        locations.add(lineObs.line1.getLayoutY());
+        //PlayingBall.ball.setLayoutY(6000);
+
+        GameDetails gd = new GameDetails(locations,star.star2.getLayoutY(),cball.colourball.getLayoutY(),PlayingBall.ball.getLayoutY(), points, "#fae100");
+        ObjectInputStream tbl = null;
+        GameDetailsTable gdt;
+        try{
+            tbl = new ObjectInputStream(new FileInputStream("GameDetailsTable.txt"));
+            gdt = (GameDetailsTable) tbl.readObject();
+        }
+        finally {
+            tbl.close();
+        }
+
+        gdt.table.add(gd);
+
+        try (ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream("GameDetailsTable.txt"))) {
+            out.writeObject(gdt);
+        }
+    }
+
+    public void deserialize(int pos) throws IOException, ClassNotFoundException {
+        ObjectInputStream tbl = null;
+        GameDetailsTable gdt;
+        GameDetails gd;
+        try{
+            tbl = new ObjectInputStream(new FileInputStream("GameDetailsTable.txt"));
+            gdt = (GameDetailsTable) tbl.readObject();
+        }
+        finally {
+            tbl.close();
+        }
+
+        if(pos == -1){
+            gd = gdt.table.get(gdt.table.size() - 1);
+        }
+
+        else{
+            gd = gdt.table.get(pos);
+        }
+
+        System.out.println("del");
+        gdt.table.remove(gd);
+        System.out.println(gdt.table);
+        System.out.println(gdt.table.size());
+        ElementLoader(gd);
+
+        try (ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream("GameDetailsTable.txt"))) {
+            out.writeObject(gdt);
+        }
     }
 }

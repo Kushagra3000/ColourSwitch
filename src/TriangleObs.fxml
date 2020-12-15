@@ -6,7 +6,7 @@
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="TriangleObs">
    <children>
       <Line fx:id="line1" endX="79.0" endY="-46.0" fill="#ff0181" layoutX="410.0" layoutY="68.0" startX="-16.0" startY="135.0" stroke="#ff0181" strokeLineCap="ROUND" strokeWidth="10.0" />
-      <Line fx:id="line2" endX="196.0" endY="129.0" fill="#FAE100" layoutX="410.0" layoutY="68.0" startX="-15.0" startY="140.0" stroke="#fae100" strokeLineCap="ROUND" strokeWidth="10.0" />
+      <Line fx:id="line2" endX="196.0" endY="129.0" fill="#fae100" layoutX="410.0" layoutY="68.0" startX="-15.0" startY="140.0" stroke="#fae100" strokeLineCap="ROUND" strokeWidth="10.0" />
       <Line fx:id="line3" endX="84.0" endY="-45.0" fill="#900dff" layoutX="410.0" layoutY="68.0" startX="201.0" startY="131.0" stroke="#900dff" strokeLineCap="ROUND" strokeWidth="10.0" />
       <Polygon fx:id="inside" fill="#2197ff00" layoutX="410.0" layoutY="68.0" points="-11.0, 136, 191.0, 124.0, 81.0, -42.333335876464844" stroke="TRANSPARENT" strokeType="INSIDE" />
    </children>

@@ -7,8 +7,12 @@ import javafx.scene.layout.AnchorPane;
 import javafx.util.Duration;
 import javafx.scene.image.ImageView;
 
+import java.io.File;
+import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.ObjectOutputStream;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.ResourceBundle;
 
 public class Game implements Initializable {
@@ -24,11 +28,9 @@ public class Game implements Initializable {
     @FXML
     private AnchorPane menuPage;
 
-    @FXML
-    private AnchorPane LoadGameRoot;
 
-    @FXML
-    private ImageView loadBtn;
+
+
 
     @FXML
     void loadGame(MouseEvent event) throws IOException {
@@ -47,21 +49,10 @@ public class Game implements Initializable {
         System.exit(0);
     }
 
-    @FXML
-    void backToMenu() throws IOException {
-        AnchorPane pane= FXMLLoader.load(getClass().getResource("MenuPage.fxml"));
-        LoadGameRoot.getChildren().setAll(pane);
-    }
 
     @FXML
     public void initialize(URL location, ResourceBundle resources) {
-//        RotateTransition tr = new RotateTransition(Duration.seconds(10),c1);
-//        tr.setByAngle(180);
-//        RotateTransition tr2 = new RotateTransition(Duration.seconds(1),c1);
-//        tr2.setFromAngle(0);
-//        tr2.setByAngle(180);
-//        tr.play();
-//        tr.setOnFinished(actionEvent -> tr2.play());
+
         setRotate(c1, 360,10);
         setRotate(c2, -360,18);
         setRotate(c3, 360,24);
@@ -78,5 +69,3 @@ public class Game implements Initializable {
     }
 
 }
-
-// TO COMBINE MENUPAGE CONTROLLER AND LOAD GAME PAGE CONTROLLER

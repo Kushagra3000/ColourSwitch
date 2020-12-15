@@ -3,10 +3,11 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
-<AnchorPane fx:id="LoadGameRoot" prefHeight="600.0" prefWidth="1024.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Game">
+<AnchorPane fx:id="LoadGameRoot" prefHeight="600.0" prefWidth="1024.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="LoadGame">
    <children>
-      <ImageView fitHeight="600.0" fitWidth="1074.0" layoutX="1.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="641.0" fitWidth="1109.0" layoutX="-54.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@Image/LoadPBG.jpeg" />
          </image>
@@ -16,15 +17,16 @@
             <Image url="@Image/loadName.png" />
          </image>
       </ImageView>
-      <ImageView fitHeight="71.0" fitWidth="75.0" layoutX="941.0" layoutY="17.0" onMouseClicked="#backToMenu" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="71.0" fitWidth="75.0" layoutX="902.0" layoutY="17.0" onMouseClicked="#backToMenu" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@Image/HomeButton.png" />
          </image>
       </ImageView>
-      <ScrollPane layoutX="61.0" layoutY="85.0" prefHeight="367.0" prefWidth="857.0">
-        <content>
-          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="200.0" prefWidth="200.0" />
-        </content>
-      </ScrollPane>
+      <ListView fx:id="GameTable" layoutX="66.0" layoutY="72.0" onMouseClicked="#SelectGame" prefHeight="378.0" prefWidth="828.0" />
+      <Label fx:id="empty" layoutX="360.0" layoutY="11.0" prefHeight="53.0" prefWidth="386.0" text="NO CURRENT SAVED GAMES" textFill="WHITE">
+         <font>
+            <Font size="25.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>

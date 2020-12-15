@@ -7,13 +7,33 @@ import javafx.util.Duration;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.ObjectOutputStream;
+import java.util.ArrayList;
+
 public class Main extends Application {
     public static MediaPlayer mediaPlayer;
 
     @Override
     public void start(Stage primaryStage) throws Exception{
+
+        File file = new File("GameDetailsTable.txt");
+        if(!file.exists()){
+            System.out.println("HERE IN EXIST");
+            GameDetailsTable FObj = new GameDetailsTable();
+            ObjectOutputStream out = null;
+            try {
+                out = new ObjectOutputStream (new FileOutputStream("GameDetailsTable.txt"));
+                out.writeObject(FObj);
+            }
+            finally {
+                out.close();
+            }
+        }
+
+
         //addMusic();
-        System.out.print("Game started" );
         Parent root = FXMLLoader.load(getClass().getResource("MenuPage.fxml"));
         primaryStage.setTitle("Colour Switch");
         primaryStage.setScene(new Scene(root, 1024, 600));
