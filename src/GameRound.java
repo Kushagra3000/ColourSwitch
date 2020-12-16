@@ -10,9 +10,13 @@ import javafx.scene.paint.Color;
 import java.io.*;
 import java.util.ArrayList;
 import java.util.Random;
+import java.util.logging.Level;
 
 public class GameRound implements Serializable {
-
+    @FXML
+    public ImageView hand;
+    @FXML
+    ImageView LevelLine;
     @FXML
     public AnchorPane centre;
     AnimationTimer timer;
@@ -78,7 +82,7 @@ public class GameRound implements Serializable {
             ResetObstacle();
 
             pane4.setVisible(true);
-            Gmo.setVisible(false);
+            //Gmo.setVisible(false);
             gameplay.getChildren().addAll(pane3);
             gameplay.getChildren().addAll(pane4);
             gameplay.getChildren().addAll(pane5);
@@ -92,8 +96,8 @@ public class GameRound implements Serializable {
             e.printStackTrace();
         }
 
-         timer = new AnimationTimer() {@Override
-            public void handle(long now) {
+        timer = new AnimationTimer() {@Override
+        public void handle(long now) {
             try {
                 ObstacleHandle();
                 update();
@@ -149,32 +153,45 @@ public class GameRound implements Serializable {
             //gameOver();
         }
 
-        if(sqrObs.cannotPass(PlayingBall)){
-            System.out.println("Game Should be Over 1");
-            Gmo.setVisible(true);
-            gameOver();
-        }
+//        if(sqrObs.cannotPass(PlayingBall)){
+//            System.out.println("Game Should be Over 1");
+//            Gmo.setVisible(true);
+//            gameOver();
+//        }
+//
+//        if(circleObs.cannotPass(PlayingBall)){
+//            System.out.println("Game Should be Over 2");
+//            Gmo.setVisible(true);
+//            gameOver();
+//        }
 
-        if(circleObs.cannotPass(PlayingBall)){
-            System.out.println("Game Should be Over 2");
-            Gmo.setVisible(true);
-            gameOver();
-        }
+//        if(triangleObs.cannotPass(PlayingBall)){
+//            System.out.println("Game Should be Over 3");
+//            Gmo.setVisible(true);
+//            gameOver();
+//        }
 
-        if(triangleObs.cannotPass(PlayingBall)){
-            System.out.println("Game Should be Over 3");
-            Gmo.setVisible(true);
-            gameOver();
-        }
-
-        if(lineObs.cannotPass(PlayingBall)){
-            System.out.println("Game Should be Over 4");
-            Gmo.setVisible(true);
-           gameOver();
-        }
+//        if(lineObs.cannotPass(PlayingBall)){
+//            System.out.println("Game Should be Over 4");
+//            Gmo.setVisible(true);
+//            gameOver();
+//        }
 
         if (t > 2) {
             t = 0;
+        }
+
+    }
+    void MoveLine()
+    {
+        System.out.println("in Linen");
+        double l=LevelLine.getLayoutY();
+        double m= hand.getLayoutY();
+        LevelLine.setLayoutY(++l);
+        hand.setLayoutY(++m);
+        if(LevelLine.getLayoutY()>750)
+        {
+            LevelLine.setLayoutY(-2000);
         }
 
     }
@@ -187,6 +204,7 @@ public class GameRound implements Serializable {
             lineObs.MoveDown(temp);
             cball.moveDown();
             star.moveDown();
+            MoveLine();
         }
     }
 

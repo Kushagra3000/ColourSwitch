@@ -29,9 +29,11 @@ public class SquareObs extends Obstacles {
     Rotate r3 = new Rotate();
     Rotate r4 = new Rotate();
     Rotate r5 = new Rotate();
+    double time;
 
     @FXML
     private void initialize() {
+        time=1000;
         line1.setLayoutY(-200);
         line2.setLayoutY(-200);
         line3.setLayoutY(-200);
@@ -57,17 +59,17 @@ public class SquareObs extends Obstacles {
         r5.setPivotY(51);
         inside.getTransforms().add(r5);
 
-        addRota(r1);
-        addRota(r2);
-        addRota(r3);
-        addRota(r4);
-        addRota(r5);
+        addRota(r1,time);
+        addRota(r2,time);
+        addRota(r3,time);
+        addRota(r4,time);
+        addRota(r5,time);
     }
 
-    private void addRota(Rotate rotation) {
+    private void addRota(Rotate rotation,double t) {
         Timeline timeline = new Timeline(
                 new KeyFrame(Duration.ZERO, new KeyValue(rotation.angleProperty(), 0)),
-                new KeyFrame(Duration.seconds(1000), new KeyValue(rotation.angleProperty(), 36000)));
+                new KeyFrame(Duration.seconds(t), new KeyValue(rotation.angleProperty(), 36000)));
         timeline.play();
     }
 

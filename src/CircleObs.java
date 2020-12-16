@@ -1,15 +1,12 @@
 import javafx.animation.*;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.geometry.Bounds;
-import javafx.scene.layout.AnchorPane;
 import javafx.scene.shape.Arc;
 import javafx.scene.shape.Circle;
 import javafx.util.Duration;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.io.IOException;
 
 public class CircleObs extends Obstacles implements ActionListener {
 
@@ -32,10 +29,6 @@ public class CircleObs extends Obstacles implements ActionListener {
 
     @FXML
     public void initialize() {
-//        arc1.setLayoutY(-100);
-//        arc2.setLayoutY(-100);
-//        arc3.setLayoutY(-100);
-//        arc4.setLayoutY(-100);
         Timeline animation = new Timeline(
                 new KeyFrame(Duration.ZERO, new KeyValue(arc1.startAngleProperty(), arc1.getStartAngle(), Interpolator.LINEAR)),
                 new KeyFrame(Duration.seconds(6), new KeyValue(arc1.startAngleProperty(), arc1.getStartAngle() - 360, Interpolator.LINEAR)),
@@ -64,7 +57,7 @@ public class CircleObs extends Obstacles implements ActionListener {
 
     @Override
     boolean cannotPass(Ball playingBall){
-        if(playingBall.ball.getStroke() == arc1.getFill()){
+        if(playingBall.ball.getFill().equals(arc1.getStroke())){
             if(arc2.getBoundsInParent().intersects(playingBall.ball.getBoundsInParent()) && !innerpart.getBoundsInParent().intersects(playingBall.ball.getBoundsInParent()))
                 return true;
             if(arc3.getBoundsInParent().intersects(playingBall.ball.getBoundsInParent()) && !innerpart.getBoundsInParent().intersects(playingBall.ball.getBoundsInParent())){
@@ -77,7 +70,7 @@ public class CircleObs extends Obstacles implements ActionListener {
                 return false;
         }
 
-        if(playingBall.ball.getStroke() == arc2.getFill()){
+        if(playingBall.ball.getFill().equals(arc2.getStroke())){
             if(arc1.getBoundsInParent().intersects(playingBall.ball.getBoundsInParent()) && !innerpart.getBoundsInParent().intersects(playingBall.ball.getBoundsInParent()))
                 return true;
             if(arc3.getBoundsInParent().intersects(playingBall.ball.getBoundsInParent()) && !innerpart.getBoundsInParent().intersects(playingBall.ball.getBoundsInParent())){
@@ -90,7 +83,7 @@ public class CircleObs extends Obstacles implements ActionListener {
                 return false;
         }
 
-        if(playingBall.ball.getStroke() == arc3.getFill()){
+        if(playingBall.ball.getFill().equals(arc3.getStroke())){
             if(arc1.getBoundsInParent().intersects(playingBall.ball.getBoundsInParent()) && !innerpart.getBoundsInParent().intersects(playingBall.ball.getBoundsInParent()))
                 return true;
             if(arc2.getBoundsInParent().intersects(playingBall.ball.getBoundsInParent()) && !innerpart.getBoundsInParent().intersects(playingBall.ball.getBoundsInParent())){
@@ -119,25 +112,6 @@ public class CircleObs extends Obstacles implements ActionListener {
 
     @Override
     void MoveDown(double length) {
-//        Timeline t1 = new Timeline(new KeyFrame(Duration.millis(600),
-//                new KeyValue(arc1.layoutYProperty(), 800)));
-//        t1.setCycleCount(1);
-//        t1.play();
-//
-//        Timeline t2 = new Timeline(new KeyFrame(Duration.millis(600),
-//                new KeyValue(arc2.layoutYProperty(), 800)));
-//        t2.setCycleCount(1);
-//        t2.play();
-//
-//        Timeline t3 = new Timeline(new KeyFrame(Duration.millis(600),
-//                new KeyValue(arc3.layoutYProperty(), 800)));
-//        t3.setCycleCount(1);
-//        t3.play();
-//
-//        Timeline t4 = new Timeline(new KeyFrame(Duration.millis(600),
-//                new KeyValue(arc4.layoutYProperty(), 800)));
-//        t4.setCycleCount(1);
-//        t4.play();
         length = arc1.getLayoutY();
         if(length > 750)
             length = -1400;
