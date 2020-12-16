@@ -30,18 +30,21 @@ public class Game implements Initializable {
 
     @FXML
     void loadGame(MouseEvent event) throws IOException {
+        GameElements.addMusic("audios/button.wav");
         AnchorPane pane= FXMLLoader.load(getClass().getResource("LoadGamePage.fxml"));
         menuPage.getChildren().setAll(pane);
     }
 
     @FXML
     void startNewGame(MouseEvent event) throws IOException {
+        GameElements.addMusic("audios/button.wav");
         AnchorPane pane= FXMLLoader.load(getClass().getResource("GamePlayPage.fxml"));
         menuPage.getChildren().setAll(pane);
     }
 
     @FXML
     void ExitGame(MouseEvent event){
+        GameElements.addMusic("audios/button.wav");
         System.exit(0);
     }
 

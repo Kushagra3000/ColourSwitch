@@ -108,6 +108,7 @@ public class GameRound implements Serializable {
 
     @FXML
     void pauseMenu() throws IOException, ClassNotFoundException {
+        GameElements.addMusic("audios/button.wav");
         System.out.println("INSIDE PAUSE MENU");
         timer.stop();
         serialize();
@@ -117,6 +118,7 @@ public class GameRound implements Serializable {
 
     @FXML
     void gameOver() throws IOException, ClassNotFoundException {
+        GameElements.addMusic("audios/dead.wav");
         System.out.println("INSIDE GAME OVER");
         timer.stop();
         ResetObstacle();
@@ -137,12 +139,14 @@ public class GameRound implements Serializable {
     private void update() throws IOException, ClassNotFoundException {
         t =+0.016;
         if(PlayingBall.ball.getBoundsInParent().intersects(star.star2.getBoundsInParent())) {
+            GameElements.addMusic("audios/star.wav");
             star.star2.setLayoutY(-200);
             points++;
             score.setText(points +"");
         }
 
         if(PlayingBall.ball.getBoundsInParent().intersects(cball.colourball.getBoundsInParent())) {
+            GameElements.addMusic("audios/colorswitch.wav");
             Color [] arr= new Color[4];
             arr[0]=Color.valueOf("#900dff");
             arr[1]=Color.valueOf("#32dbf0");
@@ -154,6 +158,10 @@ public class GameRound implements Serializable {
             ColNumber = a;
             PlayingBall.ball.setFill(arr[a]);
             cball.colourball.setLayoutY(-1000);
+        }
+
+        if(PlayingBall.ball.getBoundsInParent().intersects(LevelLine.getBoundsInParent())){
+            GameElements.addMusic("audios/wheel.wav");
         }
 
 

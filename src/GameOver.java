@@ -46,6 +46,7 @@ public class GameOver implements Initializable {
 
     @FXML
     void returnTomenu() throws IOException, ClassNotFoundException {
+        GameElements.addMusic("audios/button.wav");
         ObjectInputStream tbl = null;
         GameDetailsTable gdt;
         GameDetails gd;
@@ -69,6 +70,7 @@ public class GameOver implements Initializable {
     @FXML
     void revive() throws IOException, ClassNotFoundException, InterruptedException {
         if(Cscore >= Uscore){
+            GameElements.addMusic("audios/button.wav");
             FXMLLoader gameRound = new FXMLLoader(getClass().getResource("GamePlayPage.fxml"));
             AnchorPane setGame = gameRound.load();
             GameRound GR = gameRound.getController();
@@ -85,6 +87,7 @@ public class GameOver implements Initializable {
 
     @FXML
     void restart() throws IOException, ClassNotFoundException {
+        GameElements.addMusic("audios/button.wav");
         ObjectInputStream tbl = null;
         GameDetailsTable gdt;
         GameDetails gd;

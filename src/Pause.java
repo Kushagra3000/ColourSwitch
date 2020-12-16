@@ -11,6 +11,7 @@ public class Pause {
 
     @FXML
     void ResumeGame() throws IOException, ClassNotFoundException {
+        GameElements.addMusic("audios/button.wav");
         FXMLLoader gameRound = new FXMLLoader(getClass().getResource("GamePlayPage.fxml"));
         AnchorPane setGame = gameRound.load();
         GameRound GR = gameRound.getController();
@@ -20,7 +21,7 @@ public class Pause {
 
     @FXML
     void backToMenu() throws IOException, ClassNotFoundException {
-
+        GameElements.addMusic("audios/button.wav");
         FXMLLoader gameRound = new FXMLLoader(getClass().getResource("GamePlayPage.fxml"));
         AnchorPane setGame = gameRound.load();
         GameRound GR = gameRound.getController();
@@ -32,6 +33,7 @@ public class Pause {
 
     @FXML
     void SaveMenu() throws IOException {
+        GameElements.addMusic("audios/button.wav");
         AnchorPane menu = FXMLLoader.load(getClass().getResource("MenuPage.fxml"));
         PausePage.getChildren().setAll(menu);
     }

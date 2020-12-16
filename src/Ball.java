@@ -26,6 +26,7 @@ public class Ball extends GameElements implements ActionListener {
 
     @FXML
     private void jumpBall(ActionEvent k) throws IOException {
+        GameElements.addMusic("audios/jump.wav");
             Timeline timeline = new Timeline(new KeyFrame(Duration.millis(200),
                     new KeyValue(ball.layoutYProperty(), ball.getLayoutY() - 50)));
             bound= ball.getBoundsInParent();

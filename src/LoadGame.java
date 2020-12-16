@@ -35,6 +35,7 @@ public class LoadGame implements Initializable {
 
     @FXML
     void backToMenu() throws IOException {
+        GameElements.addMusic("audios/button.wav");
         AnchorPane pane= FXMLLoader.load(getClass().getResource("MenuPage.fxml"));
         LoadGameRoot.getChildren().setAll(pane);
     }
@@ -59,11 +60,12 @@ public class LoadGame implements Initializable {
         empty.setVisible(false);
         int selectedGame = GameTable.getSelectionModel().getSelectedIndex();
         if(selectedGame == -1){
+            GameElements.addMusic("audios/error.wav");
             empty.setText("SELECT A VALID SAVED GAME");
             empty.setVisible(true);
             return;
         }
-
+        GameElements.addMusic("audios/button.wav");
         FXMLLoader Game = new FXMLLoader(getClass().getResource("GamePlayPage.fxml"));
         AnchorPane Gplay = Game.load();
         GameRound Ggame = Game.getController();
