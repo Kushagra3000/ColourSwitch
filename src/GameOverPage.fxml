@@ -7,7 +7,7 @@
 
 <AnchorPane fx:id="gameOverPage" prefHeight="600.0" prefWidth="1224.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="GameOver">
    <children>
-      <ImageView fitHeight="740.0" fitWidth="1139.0" layoutX="8.0" layoutY="6.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="740.0" fitWidth="1139.0" layoutY="-4.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@Image/ThemeDark.jpg" />
          </image>
@@ -32,7 +32,7 @@
             <Image url="@Image/bestScore.jpg" />
          </image>
       </ImageView>
-      <ImageView fitHeight="44.0" fitWidth="160.0" layoutX="413.0" layoutY="366.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fitHeight="44.0" fitWidth="160.0" layoutX="417.0" layoutY="376.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@Image/starsDec.jpg" />
          </image>
@@ -77,13 +77,24 @@
             <Image url="@Image/name.jpg" />
          </image>
       </ImageView>
-      <Label fx:id="currentscore" layoutX="408.0" layoutY="223.0" prefHeight="97.0" prefWidth="108.0" text="0" textFill="#fff9f9">
+      <Label fx:id="currentscore" layoutX="428.0" layoutY="211.0" prefHeight="97.0" prefWidth="108.0" text="0" textFill="#fff9f9">
          <font>
             <Font size="67.0" />
          </font></Label>
-      <Label fx:id="usedstar" layoutX="101.0" layoutY="338.0" prefHeight="70.0" prefWidth="108.0" text="0" textFill="#fffdfd">
+      <Label fx:id="usedstar" layoutX="119.0" layoutY="321.0" prefHeight="70.0" prefWidth="108.0" text="0" textFill="#fffdfd">
          <font>
             <Font size="70.0" />
          </font></Label>
+      <Label fx:id="highscore" layoutX="439.0" layoutY="406.0" prefHeight="97.0" prefWidth="85.0" text="0" textFill="WHITE">
+         <font>
+            <Font size="70.0" />
+         </font>
+      </Label>
+      <ImageView fx:id="Message" fitHeight="178.0" fitWidth="497.0" layoutX="243.0" layoutY="518.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@Image/NoStar.png" />
+         </image>
+      </ImageView>
+      <Label fx:id="dm" layoutX="133.0" layoutY="105.0" prefHeight="76.0" prefWidth="124.0" text="CHAL RHA HAI" textFill="WHITE" />
    </children>
 </AnchorPane>

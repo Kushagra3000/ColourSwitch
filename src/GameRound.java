@@ -38,10 +38,10 @@ public class GameRound implements Serializable {
     int points;
     double temp;
     int ColNumber;
+    int Cost;
 
     @FXML
     private void initialize(){
-
         try {
             FXMLLoader loadBall = new FXMLLoader(getClass().getResource("playBall.fxml"));
             AnchorPane pane3 = loadBall.load();
@@ -85,7 +85,7 @@ public class GameRound implements Serializable {
             gameplay.getChildren().addAll(pane7);
             gameplay.getChildren().addAll(pane8);
             gameplay.getChildren().addAll(pane9);
-
+            ColNumber = 2;
 
         } catch (IOException e) {
             e.printStackTrace();
@@ -96,7 +96,7 @@ public class GameRound implements Serializable {
             try {
                 ObstacleHandle();
                 update();
-            } catch (IOException e) {
+            } catch (IOException | ClassNotFoundException e) {
                 e.printStackTrace();
             }
 
@@ -108,6 +108,7 @@ public class GameRound implements Serializable {
 
     @FXML
     void pauseMenu() throws IOException, ClassNotFoundException {
+        System.out.println("INSIDE PAUSE MENU");
         timer.stop();
         serialize();
         Pane pausePane = FXMLLoader.load(getClass().getResource("PauseMenu.fxml"));
@@ -115,13 +116,25 @@ public class GameRound implements Serializable {
     }
 
     @FXML
-    void gameOver() throws IOException {
+    void gameOver() throws IOException, ClassNotFoundException {
+        System.out.println("INSIDE GAME OVER");
+        timer.stop();
+        ResetObstacle();
+        GameOver.Cscore = points;
+        if(GameOver.Hscore < points)
+            GameOver.Hscore = points;
+        if(GameDetails.HighScore < GameOver.Hscore)
+            GameDetailsTable.highScore = GameOver.Hscore;
+        System.out.println("hscore " + GameOver.Hscore);
+        GameOver.Uscore = ++Cost;
+        points -= GameOver.Uscore;
+        serialize();
         AnchorPane over  = FXMLLoader.load(getClass().getResource("GameOverPage.fxml"));
         gameplay.getChildren().setAll(over);
         timer.stop();
     }
 
-    private void update() throws IOException {
+    private void update() throws IOException, ClassNotFoundException {
         t =+0.016;
         if(PlayingBall.ball.getBoundsInParent().intersects(star.star2.getBoundsInParent())) {
             star.star2.setLayoutY(-200);
@@ -148,25 +161,25 @@ public class GameRound implements Serializable {
             //gameOver();
         }
 
-//        if(sqrObs.cannotPass(PlayingBall)){
-//            System.out.println("Game Should be Over 1");
-//            gameOver();
-//        }
-//
-//        if(circleObs.cannotPass(PlayingBall)){
-//            System.out.println("Game Should be Over 2");
-//            gameOver();
-//        }
+        if(sqrObs.cannotPass(PlayingBall)){
+            System.out.println("Game Should be Over 1");
+            gameOver();
+        }
 
-//        if(triangleObs.cannotPass(PlayingBall)){
-//            System.out.println("Game Should be Over 3");
-//            gameOver();
-//        }
+        if(circleObs.cannotPass(PlayingBall)){
+            System.out.println("Game Should be Over 2");
+            gameOver();
+        }
 
-//        if(lineObs.cannotPass(PlayingBall)){
-//            System.out.println("Game Should be Over 4");
-//            gameOver();
-//        }
+        if(triangleObs.cannotPass(PlayingBall)){
+            System.out.println("Game Should be Over 3");
+            gameOver();
+        }
+
+        if(lineObs.cannotPass(PlayingBall)){
+            System.out.println("Game Should be Over 4");
+            gameOver();
+        }
 
         if (t > 2) {
             t = 0;
@@ -174,7 +187,6 @@ public class GameRound implements Serializable {
     }
 
     void MoveLine(){
-
         double l=LevelLine.getLayoutY();
         double m= hand.getLayoutY();
         LevelLine.setLayoutY(++l);
@@ -182,7 +194,6 @@ public class GameRound implements Serializable {
         if(LevelLine.getLayoutY()>750){
             LevelLine.setLayoutY(-1600);
         }
-
     }
 
     void ObstacleHandle(){
@@ -191,8 +202,8 @@ public class GameRound implements Serializable {
             triangleObs.MoveDown(temp);
             circleObs.MoveDown(temp);
             lineObs.MoveDown(temp);
-            cball.moveDown();
-            star.moveDown();
+            cball.MoveDown(temp);
+            star.MoveDown(temp);
             MoveLine();
         }
     }
@@ -222,6 +233,7 @@ public class GameRound implements Serializable {
         lineObs.line2.setLayoutY(-1500);
         lineObs.line3.setLayoutY(-1500);
         lineObs.line4.setLayoutY(-1500);
+        hand.setLayoutY(497);
     }
 
     void ElementLoader( GameDetails gd){
@@ -259,16 +271,19 @@ public class GameRound implements Serializable {
         cball.colourball.setLayoutY(gd.Cball);
         score.setText("" + gd.Score);
         points += gd.Score;
+        Cost = gd.CostS;
+
     }
 
-    void serialize() throws IOException, ClassNotFoundException {
+    public void serialize() throws IOException, ClassNotFoundException {
+        System.out.println("IN SERIALISE");
         ArrayList<Double> locations = new ArrayList<>();
         locations.add(sqrObs.line1.getLayoutY());
         locations.add(triangleObs.line1.getLayoutY());
         locations.add(circleObs.arc1.getLayoutY());
         locations.add(lineObs.line1.getLayoutY());
 
-        GameDetails gd = new GameDetails(locations,star.star2.getLayoutY(),cball.colourball.getLayoutY(),PlayingBall.ball.getLayoutY(), points, LevelLine.getLayoutY(),hand.getLayoutY(), ColNumber);
+        GameDetails gd = new GameDetails(locations,star.star2.getLayoutY(),cball.colourball.getLayoutY(),PlayingBall.ball.getLayoutY(), points, LevelLine.getLayoutY(),hand.getLayoutY(), ColNumber, Cost);
         ObjectInputStream tbl = null;
         GameDetailsTable gdt;
         try{
@@ -278,15 +293,16 @@ public class GameRound implements Serializable {
         finally {
             tbl.close();
         }
-
         gdt.table.add(gd);
-
+        System.out.println(gdt.table.size() + "");
+        GameOver.Hscore = gdt.highScore;
         try (ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream("GameDetailsTable.txt"))) {
             out.writeObject(gdt);
         }
     }
 
     public void deserialize(int pos) throws IOException, ClassNotFoundException {
+        System.out.println("IN DESERIALIZE");
         ObjectInputStream tbl = null;
         GameDetailsTable gdt;
         GameDetails gd;

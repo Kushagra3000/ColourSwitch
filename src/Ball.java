@@ -11,7 +11,7 @@ import javafx.util.Duration;
 import java.awt.event.ActionListener;
 import java.io.IOException;
 
-public class Ball implements ActionListener {
+public class Ball extends GameElements implements ActionListener {
     @FXML
     public  Circle ball;
 
@@ -42,5 +42,9 @@ public class Ball implements ActionListener {
     @Override
     public void actionPerformed(java.awt.event.ActionEvent actionEvent) {
         bound = ball.getBoundsInLocal();
+    }
+
+    @Override
+    void MoveDown(double length) {
     }
 }

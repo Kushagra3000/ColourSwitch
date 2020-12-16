@@ -28,10 +28,6 @@ public class Game implements Initializable {
     @FXML
     private AnchorPane menuPage;
 
-
-
-
-
     @FXML
     void loadGame(MouseEvent event) throws IOException {
         AnchorPane pane= FXMLLoader.load(getClass().getResource("LoadGamePage.fxml"));

@@ -1,12 +1,11 @@
 import javafx.fxml.FXML;
 import javafx.scene.image.ImageView;
 
-public class Stars {
+public class Stars extends GameElements{
 
     @FXML
     public ImageView star2;
-    void moveDown()
-    {
+    void MoveDown(double lengt){
         double length=star2.getLayoutY();
         if(length>750)
         {

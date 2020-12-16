@@ -11,7 +11,6 @@ public class Pause {
 
     @FXML
     void ResumeGame() throws IOException, ClassNotFoundException {
-
         FXMLLoader gameRound = new FXMLLoader(getClass().getResource("GamePlayPage.fxml"));
         AnchorPane setGame = gameRound.load();
         GameRound GR = gameRound.getController();
@@ -36,7 +35,4 @@ public class Pause {
         AnchorPane menu = FXMLLoader.load(getClass().getResource("MenuPage.fxml"));
         PausePage.getChildren().setAll(menu);
     }
-
-
-
 }
