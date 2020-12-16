@@ -10,7 +10,7 @@ public class Stars {
         double length=star2.getLayoutY();
         if(length>750)
         {
-            length=-200;
+            length=-250;
         }
         length++;
         star2.setLayoutY(length);

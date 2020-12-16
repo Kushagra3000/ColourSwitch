@@ -114,7 +114,7 @@ public class CircleObs extends Obstacles implements ActionListener {
     void MoveDown(double length) {
         length = arc1.getLayoutY();
         if(length > 750)
-            length = -1400;
+            length = -1500;
         length++;
         arc1.setLayoutY(length);
         arc2.setLayoutY(length);

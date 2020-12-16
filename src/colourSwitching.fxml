@@ -5,7 +5,7 @@
 
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ColourSwitchingBall">
    <children>
-      <ImageView  fx:id="colourball" fitHeight="49.0"  fitWidth="41.0" layoutX="495.0" layoutY="68.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView  fx:id="colourball" fitHeight="49.0"  fitWidth="41.0" layoutX="478.0" layoutY="68.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@Image/ColourSwitchingBall.png" />
          </image>

@@ -7,9 +7,8 @@ public class ColourSwitchingBall {
     void moveDown()
     {
         double length=colourball.getLayoutY();
-        if(length>750)
-        {
-            length=-700;
+        if(length>750) {
+            length=-1000;
         }
         length++;
         colourball.setLayoutY(length);

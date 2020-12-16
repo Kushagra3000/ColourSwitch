@@ -9,17 +9,21 @@ public class GameDetails implements Serializable {
     double star;
     double Cball;
     double Pball;
+    double hand;
+    double LevelLine;
     int Score;
-    String color;
+    int color;
     String time;
 
-    GameDetails(ArrayList<Double> o, double s, double c, double p, int Score, String color){
+    GameDetails(ArrayList<Double> o, double s, double c, double p, int Score, double l, double h,int color){
         this.obsLocation = o;
         this.star = s;
         this.Cball = c;
         this.Pball = p;
         this.Score = Score;
         this.color = color;
-        this.time = new SimpleDateFormat(" yyyy.MM.dd   HH.mm.ss ").format(new java.util.Date());
+        this.hand = h;
+        this.LevelLine = l;
+        this.time = new SimpleDateFormat(" yyyy.MM.dd   HH.mm.ss").format(new java.util.Date());
     }
 }

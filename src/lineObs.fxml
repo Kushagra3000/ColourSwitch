@@ -5,9 +5,9 @@
 
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="LineObs">
    <children>
-      <Line fx:id="line1" endX="-58.83331298828125" endY="-97.34315490722656" layoutX="632.0" layoutY="189.0" startX="-58.666656494140625" startY="-160.0" stroke="#900dff" strokeWidth="8.0" />
-      <Line fx:id="line2" endX="-100.0" endY="-131.3333282470703" layoutX="673.0" layoutY="163.0" startX="-99.6666259765625" startY="-77.00000762939453" stroke="#fae100" strokeWidth="8.0" />
-      <Line fx:id="line3" endX="-47.666656494140625" endY="-90.66667175292969" layoutX="322.0" layoutY="126.0" startX="-47.666656494140625" startY="-30.676483154296875" stroke="#ff0181" strokeWidth="8.0" />
-      <Line fx:id="line4" endX="68.33332824707031" endY="-95.33332824707031" layoutX="206.0" layoutY="131.0" startX="68.33334350585938" startY="-41.333335876464844" stroke="#32dbf0" strokeWidth="8.0" />
+      <Line fx:id="line1" endX="-262.6666564941406" endY="28.666671752929688" layoutX="628.0" layoutY="153.0" startX="-357.6666564941406" startY="28.666671752929688" stroke="#900dff" strokeWidth="8.0" />
+      <Line fx:id="line2" endX="-308.6666564941406" endY="-9.333328247070312" layoutX="672.0" layoutY="153.0" startX="-400.6666564941406" startY="-9.333328247070312" stroke="#fae100" strokeWidth="8.0" />
+      <Line fx:id="line3" endX="40.0" endY="-51.666664123535156" layoutX="322.0" layoutY="153.0" startX="-48.0" startY="-51.666664123535156" stroke="#ff0181" strokeWidth="8.0" />
+      <Line fx:id="line4" endX="68.33332824707031" endY="-95.33332824707031" layoutX="206.0" layoutY="153.0" startX="157.33334350585938" startY="-95.33332824707031" stroke="#32dbf0" strokeWidth="8.0" />
    </children>
 </AnchorPane>

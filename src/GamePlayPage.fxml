@@ -46,7 +46,7 @@
          </children></TextFlow>
       <ImageView fx:id="LevelLine"  fitHeight="22.0" fitWidth="480.0" layoutX="279.0" layoutY="474.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@Image/line3.png" />
+            <Image url="@Image/LevelLineI.png" />
          </image>
       </ImageView>
 

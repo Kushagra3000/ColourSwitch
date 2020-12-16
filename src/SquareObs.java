@@ -166,7 +166,7 @@ public class SquareObs extends Obstacles {
 //        t4.play();
         length = line1.getLayoutY();
         if(length > 750)
-            length = -1400;
+            length = -1500;
         length++;
         line1.setLayoutY(length);
         line2.setLayoutY(length);

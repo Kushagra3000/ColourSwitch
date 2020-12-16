@@ -6,28 +6,22 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
-
 import java.io.*;
 import java.util.ArrayList;
 import java.util.Random;
-import java.util.logging.Level;
 
 public class GameRound implements Serializable {
     @FXML
     public ImageView hand;
     @FXML
     ImageView LevelLine;
-    @FXML
-    public AnchorPane centre;
+
     AnimationTimer timer;
     @FXML
     public  Label score;
 
     @FXML
     private AnchorPane gameplay;
-
-    @FXML
-    private ImageView Gmo;
 
     public ColourSwitchingBall cball;
 
@@ -43,9 +37,11 @@ public class GameRound implements Serializable {
     Ball PlayingBall;
     int points;
     double temp;
+    int ColNumber;
 
     @FXML
     private void initialize(){
+
         try {
             FXMLLoader loadBall = new FXMLLoader(getClass().getResource("playBall.fxml"));
             AnchorPane pane3 = loadBall.load();
@@ -82,7 +78,6 @@ public class GameRound implements Serializable {
             ResetObstacle();
 
             pane4.setVisible(true);
-            //Gmo.setVisible(false);
             gameplay.getChildren().addAll(pane3);
             gameplay.getChildren().addAll(pane4);
             gameplay.getChildren().addAll(pane5);
@@ -123,6 +118,7 @@ public class GameRound implements Serializable {
     void gameOver() throws IOException {
         AnchorPane over  = FXMLLoader.load(getClass().getResource("GameOverPage.fxml"));
         gameplay.getChildren().setAll(over);
+        timer.stop();
     }
 
     private void update() throws IOException {
@@ -142,56 +138,49 @@ public class GameRound implements Serializable {
 
             Random rr= new Random();
             int a= rr.nextInt(4);
-
+            ColNumber = a;
             PlayingBall.ball.setFill(arr[a]);
-            cball.colourball.setLayoutY(-700);
+            cball.colourball.setLayoutY(-1000);
         }
 
 
         if(PlayingBall.ball.getLayoutY()-50 >= 550){
-            //timer.stop();
             //gameOver();
         }
 
 //        if(sqrObs.cannotPass(PlayingBall)){
 //            System.out.println("Game Should be Over 1");
-//            Gmo.setVisible(true);
 //            gameOver();
 //        }
 //
 //        if(circleObs.cannotPass(PlayingBall)){
 //            System.out.println("Game Should be Over 2");
-//            Gmo.setVisible(true);
 //            gameOver();
 //        }
 
 //        if(triangleObs.cannotPass(PlayingBall)){
 //            System.out.println("Game Should be Over 3");
-//            Gmo.setVisible(true);
 //            gameOver();
 //        }
 
 //        if(lineObs.cannotPass(PlayingBall)){
 //            System.out.println("Game Should be Over 4");
-//            Gmo.setVisible(true);
 //            gameOver();
 //        }
 
         if (t > 2) {
             t = 0;
         }
-
     }
-    void MoveLine()
-    {
-        System.out.println("in Linen");
+
+    void MoveLine(){
+
         double l=LevelLine.getLayoutY();
         double m= hand.getLayoutY();
         LevelLine.setLayoutY(++l);
         hand.setLayoutY(++m);
-        if(LevelLine.getLayoutY()>750)
-        {
-            LevelLine.setLayoutY(-2000);
+        if(LevelLine.getLayoutY()>750){
+            LevelLine.setLayoutY(-1600);
         }
 
     }
@@ -210,17 +199,18 @@ public class GameRound implements Serializable {
 
     void ResetObstacle(){
         temp = -200;
+        star.star2.setLayoutY(-250);
+        cball.colourball.setLayoutY(-750);
+        sqrObs.line1.setLayoutY(0);
+        sqrObs.line2.setLayoutY(0);
+        sqrObs.line3.setLayoutY(0);
+        sqrObs.line4.setLayoutY(0);
+        sqrObs.inside.setLayoutY(0);
 
-        sqrObs.line1.setLayoutY(-200);
-        sqrObs.line2.setLayoutY(-200);
-        sqrObs.line3.setLayoutY(-200);
-        sqrObs.line4.setLayoutY(-200);
-        sqrObs.inside.setLayoutY(-200);
-
-        triangleObs.line1.setLayoutY(-600);
-        triangleObs.line2.setLayoutY(-600);
-        triangleObs.line3.setLayoutY(-600);
-        triangleObs.inside.setLayoutY(-600);
+        triangleObs.line1.setLayoutY(-500);
+        triangleObs.line2.setLayoutY(-500);
+        triangleObs.line3.setLayoutY(-500);
+        triangleObs.inside.setLayoutY(-500);
 
         circleObs.arc1.setLayoutY(-1000);
         circleObs.arc2.setLayoutY(-1000);
@@ -228,13 +218,19 @@ public class GameRound implements Serializable {
         circleObs.arc4.setLayoutY(-1000);
         circleObs.innerpart.setLayoutY(-1000);
 
-        lineObs.line1.setLayoutY(-1400);
-        lineObs.line2.setLayoutY(-1400);
-        lineObs.line3.setLayoutY(-1400);
-        lineObs.line4.setLayoutY(-1400);
+        lineObs.line1.setLayoutY(-1500);
+        lineObs.line2.setLayoutY(-1500);
+        lineObs.line3.setLayoutY(-1500);
+        lineObs.line4.setLayoutY(-1500);
     }
 
     void ElementLoader( GameDetails gd){
+        Color [] arr= new Color[4];
+        arr[0]=Color.valueOf("#900dff");
+        arr[1]=Color.valueOf("#32dbf0");
+        arr[2]= Color.valueOf("#fae100");
+        arr[3]=Color.valueOf("#ff0181");
+
         sqrObs.line1.setLayoutY(gd.obsLocation.get(0));
         sqrObs.line2.setLayoutY(gd.obsLocation.get(0));
         sqrObs.line3.setLayoutY(gd.obsLocation.get(0));
@@ -254,10 +250,15 @@ public class GameRound implements Serializable {
         lineObs.line3.setLayoutY(gd.obsLocation.get(3));
         lineObs.line4.setLayoutY(gd.obsLocation.get(3));
 
+        hand.setLayoutY(gd.hand);
+        LevelLine.setLayoutY(gd.LevelLine);
+
         star.star2.setLayoutY(gd.star);
         PlayingBall.ball.setLayoutY(gd.Pball);
+        PlayingBall.ball.setFill(arr[gd.color]);
         cball.colourball.setLayoutY(gd.Cball);
         score.setText("" + gd.Score);
+        points += gd.Score;
     }
 
     void serialize() throws IOException, ClassNotFoundException {
@@ -266,9 +267,8 @@ public class GameRound implements Serializable {
         locations.add(triangleObs.line1.getLayoutY());
         locations.add(circleObs.arc1.getLayoutY());
         locations.add(lineObs.line1.getLayoutY());
-        //PlayingBall.ball.setLayoutY(6000);
 
-        GameDetails gd = new GameDetails(locations,star.star2.getLayoutY(),cball.colourball.getLayoutY(),PlayingBall.ball.getLayoutY(), points, "#fae100");
+        GameDetails gd = new GameDetails(locations,star.star2.getLayoutY(),cball.colourball.getLayoutY(),PlayingBall.ball.getLayoutY(), points, LevelLine.getLayoutY(),hand.getLayoutY(), ColNumber);
         ObjectInputStream tbl = null;
         GameDetailsTable gdt;
         try{

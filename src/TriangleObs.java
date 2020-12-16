@@ -60,8 +60,8 @@ public class TriangleObs extends Obstacles {
     @Override
     boolean cannotPass(Ball playingBall){
 
-        if(line1.getStroke().equals(playingBall.ball.getFill()))
-        {
+        if(line1.getStroke().equals(playingBall.ball.getFill())){
+            System.out.println("IN tri line1");
             if(line2.getBoundsInParent().intersects(playingBall.ball.getBoundsInParent()) && !inside.getBoundsInParent().intersects(playingBall.ball.getBoundsInParent()))
             {
                 return true;
@@ -105,22 +105,17 @@ public class TriangleObs extends Obstacles {
         }
 
         else {
+            line1.setStroke(playingBall.ball.getFill());
             if(line3.getBoundsInParent().intersects(playingBall.ball.getBoundsInParent()))
             {
                 return true;
             }
 
-            if(line2.getBoundsInParent().intersects(playingBall.ball.getBoundsInParent()))
-            {
+            if(line2.getBoundsInParent().intersects(playingBall.ball.getBoundsInParent())) {
                 return true;
             }
 
-            if(line1.getBoundsInParent().intersects(playingBall.ball.getBoundsInParent()))
-            {
-                return true;
-            }
             else
-
                 return false;
         }
     }
@@ -129,7 +124,7 @@ public class TriangleObs extends Obstacles {
     void MoveDown(double length) {
         length = line1.getLayoutY();
         if(length > 750)
-            length = -1400;
+            length = -1500;
         length++;
         line1.setLayoutY(length);
         line2.setLayoutY(length);

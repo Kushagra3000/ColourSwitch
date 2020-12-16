@@ -5,6 +5,8 @@ import javafx.fxml.FXML;
 import javafx.scene.shape.Line;
 import javafx.util.Duration;
 
+import java.util.concurrent.TimeUnit;
+
 public class LineObs extends Obstacles  {
 
     @FXML
@@ -19,32 +21,42 @@ public class LineObs extends Obstacles  {
     @FXML
     public Line line4;
 
+    public int time;
+
 
     @FXML
-    private void initialize(){
-        addMotion(line1, -150, 1000);
-        addMotion(line2, 150, 1000);
-        addMotion(line3,150, 1000);
-        addMotion(line4,450, 2000);
-    }
-
-    private void addMotion(Line line, int side, int time){
-        Timeline timeline = new Timeline(new KeyFrame(Duration.millis(time),
-                new KeyValue(line.layoutXProperty(), line.getLayoutX() + side)));
-        timeline.setCycleCount(600);
+    private void initialize() {
+        Timeline timeline = new Timeline(new KeyFrame(Duration.millis(2000),
+                new KeyValue(line1.layoutXProperty(), line1.getLayoutX() + 360)));
         timeline.setAutoReverse(true);
+        timeline.setCycleCount(2);
+
+        Timeline timeline1= new Timeline(new KeyFrame(Duration.millis(2000),
+                new KeyValue(line2.layoutXProperty(), line2.getLayoutX() + 360)));
+        timeline1.setAutoReverse(true);
+        timeline1.setCycleCount(2);
+
+        Timeline timeline2 = new Timeline(new KeyFrame(Duration.millis(2000),
+                new KeyValue(line3.layoutXProperty(), line3.getLayoutX() + 360)));
+        timeline2.setAutoReverse(true);
+        timeline2.setCycleCount(2);
+
+        Timeline timeline3 = new Timeline(new KeyFrame(Duration.millis(2000),
+                new KeyValue(line4.layoutXProperty(), line4.getLayoutX() + 360)));
+        timeline3.setAutoReverse(true);
+        timeline3.setCycleCount(2);
+
+        timeline.setOnFinished(actionEvent -> timeline1.play());
+        timeline1.setOnFinished(actionEvent -> timeline2.play());
+        timeline2.setOnFinished(actionEvent -> timeline3.play());
+        timeline3.setOnFinished(actionEvent -> timeline.play());
         timeline.play();
     }
 
     @Override
     boolean cannotPass(Ball playingBall) {
-
-        // System.out.println("in triangle");
-        //System.out.println(line3.getStroke());
-        //System.out.println(playingBall.ball.getFill());
         if(line1.getStroke().equals(playingBall.ball.getFill()))
         {
-            //  System.out.println("----->>>>>>>>>>>>>>int the lin1");
             if(line2.getBoundsInParent().intersects(playingBall.ball.getBoundsInParent()))
             {
                 return true;
@@ -81,7 +93,6 @@ public class LineObs extends Obstacles  {
         if(line3.getStroke().equals(playingBall.ball.getFill()))
         {
 
-            //System.out.println("in line 3" );
             if(line1.getBoundsInParent().intersects(playingBall.ball.getBoundsInParent()))
             {
                 return true;
@@ -100,7 +111,6 @@ public class LineObs extends Obstacles  {
         else
         {
 
-            ///System.out.println("----->>>>>>>>>>>>>>int the lin4");
             if(line3.getBoundsInParent().intersects(playingBall.ball.getBoundsInParent()))
             {
                 return true;
@@ -123,28 +133,9 @@ public class LineObs extends Obstacles  {
 
     @Override
     void MoveDown(double length) {
-//        Timeline t1 = new Timeline(new KeyFrame(Duration.millis(600),
-//                new KeyValue(line1.layoutYProperty(), 800)));
-//        t1.setCycleCount(1);
-//        t1.play();
-//
-//        Timeline t2 = new Timeline(new KeyFrame(Duration.millis(600),
-//                new KeyValue(line2.layoutYProperty(), 800)));
-//        t2.setCycleCount(1);
-//        t2.play();
-//
-//        Timeline t3 = new Timeline(new KeyFrame(Duration.millis(600),
-//                new KeyValue(line3.layoutYProperty(), 800)));
-//        t3.setCycleCount(1);
-//        t3.play();
-//
-//        Timeline t4 = new Timeline(new KeyFrame(Duration.millis(600),
-//                new KeyValue(line1.layoutYProperty(), 800)));
-//        t4.setCycleCount(1);
-//        t4.play();
         length = line1.getLayoutY();
         if(length > 750)
-            length = -1400;
+            length = -1500;
         length++;
         line1.setLayoutY(length);
         line2.setLayoutY(length);
