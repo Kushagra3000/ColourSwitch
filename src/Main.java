@@ -33,7 +33,7 @@ public class Main extends Application {
         }
 
 
-        //addMusic();
+        addMusic();
         Parent root = FXMLLoader.load(getClass().getResource("MenuPage.fxml"));
         primaryStage.setTitle("Colour Switch");
         primaryStage.setScene(new Scene(root, 1024, 600));

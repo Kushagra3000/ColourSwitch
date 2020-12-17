@@ -32,7 +32,7 @@ public class Ball extends GameElements implements ActionListener {
             bound= ball.getBoundsInParent();
 
             timeline.setCycleCount(1);
-            Timeline t2 = new Timeline(new KeyFrame(Duration.millis(1100),
+            Timeline t2 = new Timeline(new KeyFrame(Duration.millis(2000),
                     new KeyValue(ball.layoutYProperty(), 600)));
 
             t2.setCycleCount(1);
