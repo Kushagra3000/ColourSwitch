@@ -11,8 +11,11 @@ import java.util.ArrayList;
 import java.util.Random;
 
 public class GameRound implements Serializable {
+   @FXML
+   private Label level;
     @FXML
     public ImageView hand;
+    private int Level;
 
     @FXML
     public Label time;
@@ -75,6 +78,8 @@ public class GameRound implements Serializable {
             AnchorPane pane7 = load3.load();
             obstacle = load.getController();
             sqrObs = load3.getController();
+            Level=1;
+            level.setText(Level+"");
 
             FXMLLoader load4 = new FXMLLoader(getClass().getResource("TriangleObs.fxml"));
             AnchorPane pane8 = load4.load();
@@ -154,6 +159,14 @@ public class GameRound implements Serializable {
             star.star2.setLayoutY(-200);
             points++;
             score.setText(points +"");
+        }
+        if(PlayingBall.ball.getBoundsInParent().intersects(LevelLine.getBoundsInParent()))
+        {
+            LevelLine.setLayoutY(-1600);
+            Level=Level+1;
+            lineObs.time=lineObs.time-200;
+            level.setText(Level+"");
+
         }
         if(PlayingBall.ball.getBoundsInParent().intersects(cball.colourball.getBoundsInParent())) {
             GameElements.addMusic("audios/colorswitch.wav");
@@ -256,7 +269,7 @@ public class GameRound implements Serializable {
         temp = -200;
         star.star2.setLayoutY(-250);
         star.specialStar.setLayoutY(-700);
-        PlayingBall.ball.setLayoutY(484);
+        PlayingBall.ball.setLayoutY(450);
         cball.colourball.setLayoutY(-750);
         sqrObs.line1.setLayoutY(0);
         sqrObs.line2.setLayoutY(0);

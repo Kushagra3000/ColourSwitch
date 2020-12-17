@@ -21,27 +21,29 @@ public class LineObs extends Obstacles  {
     @FXML
     public Line line4;
 
-    public int time;
+    public int time=2000;
+
 
 
     @FXML
     private void initialize() {
-        Timeline timeline = new Timeline(new KeyFrame(Duration.millis(2000),
+        //System.out.println(time);
+        Timeline timeline = new Timeline(new KeyFrame(Duration.millis(time),
                 new KeyValue(line1.layoutXProperty(), line1.getLayoutX() + 360)));
         timeline.setAutoReverse(true);
         timeline.setCycleCount(2);
 
-        Timeline timeline1= new Timeline(new KeyFrame(Duration.millis(2000),
+        Timeline timeline1= new Timeline(new KeyFrame(Duration.millis(time),
                 new KeyValue(line2.layoutXProperty(), line2.getLayoutX() + 360)));
         timeline1.setAutoReverse(true);
         timeline1.setCycleCount(2);
 
-        Timeline timeline2 = new Timeline(new KeyFrame(Duration.millis(2000),
+        Timeline timeline2 = new Timeline(new KeyFrame(Duration.millis(time),
                 new KeyValue(line3.layoutXProperty(), line3.getLayoutX() + 360)));
         timeline2.setAutoReverse(true);
         timeline2.setCycleCount(2);
 
-        Timeline timeline3 = new Timeline(new KeyFrame(Duration.millis(2000),
+        Timeline timeline3 = new Timeline(new KeyFrame(Duration.millis(time),
                 new KeyValue(line4.layoutXProperty(), line4.getLayoutX() + 360)));
         timeline3.setAutoReverse(true);
         timeline3.setCycleCount(2);

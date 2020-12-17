@@ -72,4 +72,14 @@
 
 
    </children>
+   <ImageView fitHeight="48.0" fitWidth="176.0" layoutX="790.0" layoutY="288.0" pickOnBounds="true" preserveRatio="true">
+      <image>
+         <Image url="@Image/level.png" />
+      </image>
+   </ImageView>
+   <Label  fx:id="level" layoutX="817.0" layoutY="342.0" prefHeight="125.0" prefWidth="149.0" text="0" textFill="WHITE">
+      <font>
+         <Font size="82.0" />
+      </font>
+   </Label>
 </AnchorPane>
