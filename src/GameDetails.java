@@ -17,8 +17,9 @@ public class GameDetails implements Serializable {
     String time;
     static int HighScore;
     int CostS;
+    int level;
 
-    GameDetails(ArrayList<Double> o, double s, double c, double p, int Score, double l, double h,int color,int co, double spst){
+    GameDetails(ArrayList<Double> o, double s, double c, double p, int Score, double l, double h,int color,int co, double spst,int le){
         this.obsLocation = o;
         this.star = s;
         this.Cball = c;
@@ -30,5 +31,6 @@ public class GameDetails implements Serializable {
         this.time = new SimpleDateFormat(" yyyy.MM.dd   HH.mm.ss").format(new java.util.Date());
         this.CostS = co;
         this.specStar = spst;
+        this.level = le;
     }
 }

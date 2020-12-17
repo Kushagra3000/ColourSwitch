@@ -144,26 +144,6 @@ public class SquareObs extends Obstacles {
 
     @Override
     void MoveDown(double length) {
-
-//        Timeline t1 = new Timeline(new KeyFrame(Duration.millis(600),
-//                new KeyValue(line1.layoutYProperty(), 800)));
-//        t1.setCycleCount(1);
-//        t1.play();
-//
-//        Timeline t2 = new Timeline(new KeyFrame(Duration.millis(600),
-//                new KeyValue(line2.layoutYProperty(), 800)));
-//        t2.setCycleCount(1);
-//        t2.play();
-//
-//        Timeline t3 = new Timeline(new KeyFrame(Duration.millis(600),
-//                new KeyValue(line3.layoutYProperty(), 800)));
-//        t3.setCycleCount(1);
-//        t3.play();
-//
-//        Timeline t4 = new Timeline(new KeyFrame(Duration.millis(600),
-//                new KeyValue(line4.layoutYProperty(), 800)));
-//        t4.setCycleCount(1);
-//        t4.play();
         length = line1.getLayoutY();
         if(length > 750)
             length = -1500;

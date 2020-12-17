@@ -330,7 +330,9 @@ public class GameRound implements Serializable {
         PlayingBall.ball.setFill(arr[gd.color]);
         cball.colourball.setLayoutY(gd.Cball);
         score.setText("" + gd.Score);
+        level.setText(gd.level + "");
         points += gd.Score;
+        Level += gd.level-1;
         Cost = gd.CostS;
 
     }
@@ -343,7 +345,7 @@ public class GameRound implements Serializable {
         locations.add(circleObs.arc1.getLayoutY());
         locations.add(lineObs.line1.getLayoutY());
 
-        GameDetails gd = new GameDetails(locations,star.star2.getLayoutY(),cball.colourball.getLayoutY(),PlayingBall.ball.getLayoutY(), points, LevelLine.getLayoutY(),hand.getLayoutY(), ColNumber, Cost,star.specialStar.getLayoutY());
+        GameDetails gd = new GameDetails(locations,star.star2.getLayoutY(),cball.colourball.getLayoutY(),PlayingBall.ball.getLayoutY(), points, LevelLine.getLayoutY(),hand.getLayoutY(), ColNumber, Cost,star.specialStar.getLayoutY(),Level);
         ObjectInputStream tbl = null;
         GameDetailsTable gdt;
         try{
