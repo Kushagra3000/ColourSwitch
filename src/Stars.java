@@ -5,6 +5,8 @@ public class Stars extends GameElements{
 
     @FXML
     public ImageView star2;
+    public ImageView specialStar;
+
     void MoveDown(double lengt){
         double length=star2.getLayoutY();
         if(length>750)
