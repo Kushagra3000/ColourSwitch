@@ -12,6 +12,21 @@
             <Image url="@Image/playPage.jpg" />
          </image>
       </ImageView>
+      <ImageView fitHeight="630.0" fitWidth="640.0" layoutX="-1.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@Image/test2.gif" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="674.0" fitWidth="630.0" layoutX="450.0" layoutY="3.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@Image/test2.gif" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="650.0" fitWidth="469.0" layoutX="279.0" layoutY="-17.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@Image/test1.gif" />
+         </image>
+      </ImageView>
       <ImageView fx:id="pauseimg" fitHeight="108.0" fitWidth="143.0" layoutX="809.0" layoutY="101.0" onMouseClicked="#pauseMenu" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@Image/pausebtn.jpg" />
@@ -25,11 +40,6 @@
       <ImageView fitHeight="48.0" fitWidth="183.0" layoutX="62.0" layoutY="45.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@Image/score.png" />
-         </image>
-      </ImageView>
-      <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="785.0" layoutY="497.0" onMouseClicked="#gameOver" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@Image/gameOver.png" />
          </image>
       </ImageView>
       <ImageView fx:id="hand" fitHeight="73.0" fitWidth="72.0" layoutX="471.0" layoutY="497.0" pickOnBounds="true" preserveRatio="true">
