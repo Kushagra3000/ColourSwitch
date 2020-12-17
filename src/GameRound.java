@@ -91,6 +91,17 @@ public class GameRound implements Serializable {
 
             ResetObstacle();
 
+            Color [] arr= new Color[4];
+            arr[0]=Color.valueOf("#900dff");
+            arr[1]=Color.valueOf("#32dbf0");
+            arr[2]= Color.valueOf("#fae100");
+            arr[3]=Color.valueOf("#ff0181");
+
+            Random rr= new Random();
+            int a= rr.nextInt(4);
+            ColNumber = a;
+            PlayingBall.ball.setFill(arr[a]);
+
             pane4.setVisible(true);
             gameplay.getChildren().addAll(pane3);
             gameplay.getChildren().addAll(pane4);
@@ -318,6 +329,7 @@ public class GameRound implements Serializable {
         lineObs.line2.setLayoutY(gd.obsLocation.get(3));
         lineObs.line3.setLayoutY(gd.obsLocation.get(3));
         lineObs.line4.setLayoutY(gd.obsLocation.get(3));
+        lineObs.time -= (gd.level-1)*200;
 
         hand.setLayoutY(gd.hand);
         LevelLine.setLayoutY(gd.LevelLine);
