@@ -159,9 +159,9 @@ public class GameRound implements Serializable {
             cball.colourball.setLayoutY(-1000);
         }
 
-        if(PlayingBall.ball.getBoundsInParent().intersects(LevelLine.getBoundsInParent())){
-            GameElements.addMusic("audios/wheel.wav");
-        }
+//        if(PlayingBall.ball.getBoundsInParent().intersects(LevelLine.getBoundsInParent())){
+//            GameElements.addMusic("audios/wheel.wav");
+//        }
 
 
         if(PlayingBall.ball.getLayoutY()-50 >= 550){

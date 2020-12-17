@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.*?>
 <?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
 
@@ -54,6 +55,12 @@
       <ImageView fx:id="setting" accessibleRole="BUTTON" fitHeight="121.0" fitWidth="111.0" layoutX="888.0" layoutY="25.0" onMouseClicked="#ShowSetting" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@Image/settingButton.png" />
+         </image>
+      </ImageView>
+      <Slider fx:id="VolSlider" layoutX="937.0" layoutY="162.0" orientation="VERTICAL" />
+      <ImageView fx:id="close" fitHeight="53.0" fitWidth="51.0" layoutX="919.0" layoutY="319.0" pickOnBounds="true" preserveRatio="true" onMouseClicked="#CloseSet" >
+         <image>
+            <Image url="@Image/closeBtn.png" />
          </image>
       </ImageView>
    </children>

@@ -1,7 +1,10 @@
 import javafx.animation.RotateTransition;
+import javafx.beans.InvalidationListener;
+import javafx.beans.Observable;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Slider;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.util.Duration;
@@ -24,6 +27,15 @@ public class Game implements Initializable {
 
     @FXML
     public ImageView c1;
+
+    @FXML
+    public ImageView setting;
+
+    @FXML
+    public Slider VolSlider;
+
+    @FXML
+    public ImageView close;
 
     @FXML
     private AnchorPane menuPage;
@@ -51,7 +63,8 @@ public class Game implements Initializable {
 
     @FXML
     public void initialize(URL location, ResourceBundle resources) {
-
+        VolSlider.setVisible(false);
+        close.setVisible(false);
         setRotate(c1, 360,10);
         setRotate(c2, -360,18);
         setRotate(c3, 360,24);
@@ -67,6 +80,7 @@ public class Game implements Initializable {
         rt.play();
     }
 
+    @FXML
     public void showinstruction(MouseEvent mouseEvent) throws IOException {
         GameElements.addMusic("audios/button.wav");
         AnchorPane pane= FXMLLoader.load(getClass().getResource("Instruction.fxml"));
@@ -74,6 +88,26 @@ public class Game implements Initializable {
         
     }
 
+    @FXML
     public void ShowSetting(MouseEvent mouseEvent) {
+        GameElements.addMusic("audios/bulle.wav");
+        setRotate(setting,45,1);
+        VolSlider.setValue(Main.mediaPlayer.getVolume() * 100);
+        VolSlider.setVisible(true);
+        close.setVisible(true);
+        VolSlider.valueProperty().addListener(new InvalidationListener() {
+            @Override
+            public void invalidated(Observable observable) {
+                Main.mediaPlayer.setVolume(VolSlider.getValue() / 100);
+                GameElements.mediaPlayer.setVolume(VolSlider.getValue() / 100);
+            }
+        });
+    }
+
+    @FXML
+    void CloseSet(){
+        GameElements.addMusic("audios/bulle.wav");
+        VolSlider.setVisible(false);
+        close.setVisible(false);
     }
 }

@@ -73,4 +73,5 @@ public class LoadGame implements Initializable {
         Ggame.deserialize(selectedGame);
     }
 
+
 }
