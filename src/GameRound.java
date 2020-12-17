@@ -120,7 +120,6 @@ public class GameRound implements Serializable {
     void gameOver() throws IOException, ClassNotFoundException {
         GameElements.addMusic("audios/dead.wav");
         System.out.println("INSIDE GAME OVER");
-        timer.stop();
         ResetObstacle();
         GameOver.Cscore = points;
         if(GameOver.Hscore < points)
@@ -166,7 +165,7 @@ public class GameRound implements Serializable {
 
 
         if(PlayingBall.ball.getLayoutY()-50 >= 550){
-            //gameOver();
+            gameOver();
         }
 
         if(sqrObs.cannotPass(PlayingBall)){
@@ -219,6 +218,7 @@ public class GameRound implements Serializable {
     void ResetObstacle(){
         temp = -200;
         star.star2.setLayoutY(-250);
+        PlayingBall.ball.setLayoutY(484);
         cball.colourball.setLayoutY(-750);
         sqrObs.line1.setLayoutY(0);
         sqrObs.line2.setLayoutY(0);

@@ -67,4 +67,13 @@ public class Game implements Initializable {
         rt.play();
     }
 
+    public void showinstruction(MouseEvent mouseEvent) throws IOException {
+        GameElements.addMusic("audios/button.wav");
+        AnchorPane pane= FXMLLoader.load(getClass().getResource("Instruction.fxml"));
+        menuPage.getChildren().setAll(pane);
+        
+    }
+
+    public void ShowSetting(MouseEvent mouseEvent) {
+    }
 }

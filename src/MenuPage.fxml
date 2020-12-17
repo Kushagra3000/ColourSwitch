@@ -3,11 +3,12 @@
 <?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane fx:id="menuPage" prefHeight="600.0" prefWidth="1024.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Game">
+<AnchorPane fx:id="menuPage" prefHeight="600.0" prefWidth="1024.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Game">
    <children>
-      <ImageView fitHeight="600.0" fitWidth="1124.0" layoutX="-14.0" pickOnBounds="true" preserveRatio="true">
+
+      <ImageView accessibleRole="BUTTON" fitHeight="1041.0" fitWidth="1141.0" layoutX="-15.0" layoutY="-201.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@Image/Background.jpg" />
+            <Image url="@Image/backGroundGIF.JPEG" />
          </image>
       </ImageView>
       <ImageView fx:id="loadBtn" fitHeight="50.0" fitWidth="222.0" layoutX="76.0" layoutY="477.0" onMouseClicked="#loadGame" pickOnBounds="true" preserveRatio="true">
@@ -20,7 +21,7 @@
             <Image url="@Image/exitbutton.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="c1" fitHeight="328.0" fitWidth="326.0" layoutX="370.0" layoutY="219.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="c1" fitHeight="328.0" fitWidth="326.0" layoutX="371.0" layoutY="218.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@Image/c1.png" />
          </image>
@@ -38,6 +39,21 @@
       <ImageView fitHeight="158.0" fitWidth="159.0" layoutX="454.0" layoutY="302.0" onMouseClicked="#startNewGame" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@Image/Play.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="instruction" fitHeight="112.0" fitWidth="111.0" layoutX="43.0" layoutY="30.0" onMouseClicked="#showinstruction" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@Image/I_button.png" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="112.0" fitWidth="263.0" layoutX="433.0" layoutY="74.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@Image/name.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="setting" accessibleRole="BUTTON" fitHeight="121.0" fitWidth="111.0" layoutX="888.0" layoutY="25.0" onMouseClicked="#ShowSetting" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@Image/settingButton.png" />
          </image>
       </ImageView>
    </children>
