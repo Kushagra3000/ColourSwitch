@@ -180,6 +180,16 @@ public class GameRound implements Serializable {
         }
 
         if(!collision && (System.currentTimeMillis() - t1)<10000){
+            Color [] arr= new Color[4];
+            arr[0]=Color.valueOf("#900dff");
+            arr[1]=Color.valueOf("#32dbf0");
+            arr[2]= Color.valueOf("#fae100");
+            arr[3]=Color.valueOf("#ff0181");
+
+            Random rr= new Random();
+            int a= rr.nextInt(4);
+            ColNumber = a;
+            PlayingBall.ball.setFill(arr[a]);
             time.setText((System.currentTimeMillis() - t1) + "");
         }
 
