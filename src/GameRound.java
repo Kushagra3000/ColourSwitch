@@ -141,8 +141,6 @@ public class GameRound implements Serializable {
         GameOver.Cscore = points;
         if(GameOver.Hscore < points)
             GameOver.Hscore = points;
-        if(GameDetails.HighScore < GameOver.Hscore)
-            GameDetailsTable.highScore = GameOver.Hscore;
         System.out.println("hscore " + GameOver.Hscore);
         GameOver.Uscore = ++Cost;
         points -= GameOver.Uscore;
@@ -185,7 +183,7 @@ public class GameRound implements Serializable {
 
         if(PlayingBall.ball.getBoundsInParent().intersects(star.specialStar.getBoundsInParent())){
             GameElements.addMusic("audios/start.wav");
-            star.specialStar.setLayoutY(-1400);
+            star.specialStar.setLayoutY(-1800);
             tl.setVisible(true);
             time.setVisible(true);
             t1 = System.currentTimeMillis();
@@ -357,6 +355,8 @@ public class GameRound implements Serializable {
         }
         gdt.table.add(gd);
         System.out.println(gdt.table.size() + "");
+        if(points+Cost > gdt.highScore)
+            gdt.highScore = points + Cost;
         GameOver.Hscore = gdt.highScore;
         try (ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream("GameDetailsTable.txt"))) {
             out.writeObject(gdt);
@@ -388,6 +388,8 @@ public class GameRound implements Serializable {
         gdt.table.remove(gd);
         System.out.println(gdt.table);
         System.out.println(gdt.table.size());
+        GameOver.Hscore = gdt.highScore;
+
         ElementLoader(gd);
 
         try (ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream("GameDetailsTable.txt"))) {

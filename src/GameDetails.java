@@ -15,7 +15,6 @@ public class GameDetails implements Serializable {
     int Score;
     int color;
     String time;
-    static int HighScore;
     int CostS;
     int level;
 

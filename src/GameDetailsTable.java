@@ -3,7 +3,7 @@ import java.util.ArrayList;
 
 public class GameDetailsTable implements Serializable {
     ArrayList<GameDetails> table;
-    static int highScore;
+    int highScore;
 
     GameDetailsTable(){
         table = new ArrayList<>();
