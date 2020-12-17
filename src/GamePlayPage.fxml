@@ -44,11 +44,21 @@
                   <Font name="Fira Code Light" size="48.0" />
                </font></Label>
          </children></TextFlow>
-      <ImageView fx:id="LevelLine"  fitHeight="22.0" fitWidth="480.0" layoutX="279.0" layoutY="474.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="LevelLine" fitHeight="22.0" fitWidth="480.0" layoutX="279.0" layoutY="474.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@Image/LevelLineI.png" />
          </image>
       </ImageView>
+      <Label fx:id="time" layoutX="62.0" layoutY="331.0" prefHeight="66.0" prefWidth="139.0" text="0" textFill="WHITE">
+         <font>
+            <Font size="50.0" />
+         </font>
+      </Label>
+      <Label fx:id="tl" layoutX="56.0" layoutY="269.0" prefHeight="65.0" prefWidth="176.0" text="TIME" textFill="WHITE">
+         <font>
+            <Font size="50.0" />
+         </font>
+      </Label>
 
 
    </children>

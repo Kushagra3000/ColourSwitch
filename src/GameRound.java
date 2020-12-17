@@ -13,6 +13,13 @@ import java.util.Random;
 public class GameRound implements Serializable {
     @FXML
     public ImageView hand;
+
+    @FXML
+    public Label time;
+
+    @FXML
+    public Label tl;
+
     @FXML
     ImageView LevelLine;
 
@@ -39,6 +46,8 @@ public class GameRound implements Serializable {
     double temp;
     int ColNumber;
     int Cost;
+    boolean collision;
+    long t1;
 
     @FXML
     private void initialize(){
@@ -86,6 +95,9 @@ public class GameRound implements Serializable {
             gameplay.getChildren().addAll(pane8);
             gameplay.getChildren().addAll(pane9);
             ColNumber = 2;
+            collision = true;
+            tl.setVisible(false);
+            time.setVisible(false);
 
         } catch (IOException e) {
             e.printStackTrace();
@@ -143,7 +155,6 @@ public class GameRound implements Serializable {
             points++;
             score.setText(points +"");
         }
-
         if(PlayingBall.ball.getBoundsInParent().intersects(cball.colourball.getBoundsInParent())) {
             GameElements.addMusic("audios/colorswitch.wav");
             Color [] arr= new Color[4];
@@ -159,33 +170,49 @@ public class GameRound implements Serializable {
             cball.colourball.setLayoutY(-1000);
         }
 
-//        if(PlayingBall.ball.getBoundsInParent().intersects(LevelLine.getBoundsInParent())){
-//            GameElements.addMusic("audios/wheel.wav");
-//        }
+        if(PlayingBall.ball.getBoundsInParent().intersects(star.specialStar.getBoundsInParent())){
+            GameElements.addMusic("audios/start.wav");
+            star.specialStar.setLayoutY(-1400);
+            tl.setVisible(true);
+            time.setVisible(true);
+            t1 = System.currentTimeMillis();
+            collision = false;
+        }
 
+        if(!collision && (System.currentTimeMillis() - t1)<10000){
+            time.setText((System.currentTimeMillis() - t1) + "");
+        }
+
+        else{
+            tl.setVisible(false);
+            time.setVisible(false);
+            collision = true;
+        }
 
         if(PlayingBall.ball.getLayoutY()-50 >= 550){
             gameOver();
         }
 
-        if(sqrObs.cannotPass(PlayingBall)){
-            System.out.println("Game Should be Over 1");
-            gameOver();
-        }
+        if(collision){
+            if (sqrObs.cannotPass(PlayingBall)) {
+                System.out.println("Game Should be Over 1");
+                gameOver();
+            }
 
-        if(circleObs.cannotPass(PlayingBall)){
-            System.out.println("Game Should be Over 2");
-            gameOver();
-        }
+            if (circleObs.cannotPass(PlayingBall)) {
+                System.out.println("Game Should be Over 2");
+                gameOver();
+            }
 
-        if(triangleObs.cannotPass(PlayingBall)){
-            System.out.println("Game Should be Over 3");
-            gameOver();
-        }
+            if (triangleObs.cannotPass(PlayingBall)) {
+                System.out.println("Game Should be Over 3");
+                gameOver();
+            }
 
-        if(lineObs.cannotPass(PlayingBall)){
-            System.out.println("Game Should be Over 4");
-            gameOver();
+            if (lineObs.cannotPass(PlayingBall)) {
+                System.out.println("Game Should be Over 4");
+                gameOver();
+            }
         }
 
         if (t > 2) {
@@ -218,6 +245,7 @@ public class GameRound implements Serializable {
     void ResetObstacle(){
         temp = -200;
         star.star2.setLayoutY(-250);
+        star.specialStar.setLayoutY(-700);
         PlayingBall.ball.setLayoutY(484);
         cball.colourball.setLayoutY(-750);
         sqrObs.line1.setLayoutY(0);
@@ -274,6 +302,7 @@ public class GameRound implements Serializable {
         LevelLine.setLayoutY(gd.LevelLine);
 
         star.star2.setLayoutY(gd.star);
+        star.specialStar.setLayoutY(gd.specStar);
         PlayingBall.ball.setLayoutY(gd.Pball);
         PlayingBall.ball.setFill(arr[gd.color]);
         cball.colourball.setLayoutY(gd.Cball);
@@ -291,7 +320,7 @@ public class GameRound implements Serializable {
         locations.add(circleObs.arc1.getLayoutY());
         locations.add(lineObs.line1.getLayoutY());
 
-        GameDetails gd = new GameDetails(locations,star.star2.getLayoutY(),cball.colourball.getLayoutY(),PlayingBall.ball.getLayoutY(), points, LevelLine.getLayoutY(),hand.getLayoutY(), ColNumber, Cost);
+        GameDetails gd = new GameDetails(locations,star.star2.getLayoutY(),cball.colourball.getLayoutY(),PlayingBall.ball.getLayoutY(), points, LevelLine.getLayoutY(),hand.getLayoutY(), ColNumber, Cost,star.specialStar.getLayoutY());
         ObjectInputStream tbl = null;
         GameDetailsTable gdt;
         try{
