@@ -99,8 +99,8 @@ public class GameRound implements Serializable {
 
             Random rr= new Random();
             int a= rr.nextInt(4);
-            ColNumber = a;
             PlayingBall.ball.setFill(arr[a]);
+            ColNumber = a;
 
             pane4.setVisible(true);
             gameplay.getChildren().addAll(pane3);
@@ -110,7 +110,6 @@ public class GameRound implements Serializable {
             gameplay.getChildren().addAll(pane7);
             gameplay.getChildren().addAll(pane8);
             gameplay.getChildren().addAll(pane9);
-            ColNumber = 2;
             collision = true;
             tl.setVisible(false);
             time.setVisible(false);
@@ -344,7 +343,6 @@ public class GameRound implements Serializable {
         points += gd.Score;
         Level += gd.level-1;
         Cost = gd.CostS;
-
     }
 
     public void serialize() throws IOException, ClassNotFoundException {
